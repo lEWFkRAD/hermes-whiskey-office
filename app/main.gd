@@ -105,6 +105,7 @@ var review_previous_view := "The room"
 var room_control_hint: Label
 var hologram
 var fabricator
+var control_tips
 
 func _enter_tree() -> void:
 	automation_started_msec = Time.get_ticks_msec()
@@ -130,6 +131,9 @@ func _ready() -> void:
 	build_desktop_hud()
 	build_workbench()
 	build_hologram_podium()
+	control_tips = load("res://office_tutorial.gd").new()
+	add_child(control_tips)
+	control_tips.setup(xr_camera if xr_active else camera, OS.get_environment("HERMES_OFFICE_DATA_DIR"))
 	var awareness: Node = load("res://office_awareness.gd").new()
 	add_child(awareness)
 	awareness.setup(self)
@@ -926,6 +930,11 @@ func toggle_desktop_hud() -> void:
 		desktop_surface.send_command("key", {"keysym": key, "pressed": false})
 
 func handle_wrist_action(action: String) -> void:
+	if control_tips and action.begins_with("tutorial_"):
+		var topic := action.trim_prefix("tutorial_")
+		if topic in ["on", "off"]: control_tips.set_tips_enabled(topic == "on")
+		else: control_tips.request_tip(topic)
+		return
 	if hologram and action.begins_with("hologram_"):
 		if office_windows: office_windows.release_all()
 		match action:
@@ -1558,6 +1567,9 @@ func update_xr_interaction(delta: float) -> void:
 	var right := controllers[1]
 	var left := controllers[0]
 	var hand: Dictionary = hand_pointer.sample(xr_origin) if hand_pointer else {}
+	if control_tips:
+		var aimed_window: bool = office_windows != null and not str(office_windows.pointed_id).is_empty()
+		control_tips.update_context(bool(hand.get("valid", false)), right.get_is_active(), wrist_controls != null and wrist_controls.dial.is_open(), aimed_window, delta)
 	# Object grip owns only a hit on a completed model; ordinary window and
 	# wrist gestures retain their original path. Release/lost tracking is consumed.
 	if fabricator:
@@ -1598,7 +1610,8 @@ func update_xr_interaction(delta: float) -> void:
 	xr_view_button_was_down = menu
 	var close := right.is_button_pressed("by_button")
 	if close and not xr_close_was_down:
-		if office_windows: office_windows.close_window()
+		if control_tips and control_tips.dismiss(): pass
+		elif office_windows: office_windows.close_window()
 		else: show_workbench(false)
 	xr_close_was_down = close
 	var desk := left.is_button_pressed("ax_button")
@@ -1739,6 +1752,8 @@ func _process(delta: float) -> void:
 		refresh_snapshots()
 		save_office_draft()
 	if wrist_controls and not xr_active: wrist_controls.update_desktop(delta)
+	if control_tips and not xr_active and (not control_tips.pending.is_empty() or not control_tips.current.is_empty()):
+		control_tips.update_context(false, true, wrist_controls != null and wrist_controls.dial.is_open(), false, delta)
 	update_xr_interaction(delta)
 	move_desktop(delta)
 	move_xr(delta)

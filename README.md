@@ -53,6 +53,8 @@ For the complete workspace, follow **[Setup](docs/SETUP.md)**. It covers Linux d
 
 The Home wheel offers Build, Dictate, End voice, Discuss view, Approvals, Windows, File tray and Senses. On desktop, WASD moves, F9 opens the wheel, arrows select, and hold/release Enter activates. Space starts dictation; use End voice and Send deliberately. Discuss view queues an image including your work windows; it does not send it.
 
+New users see short [control tips](docs/CONTROL-TIPS.md) for hands or controllers. Tips stay in world space and fade after 12 seconds. **Senses → Help** replays individual lessons or turns automatic tips off. B dismisses a visible tip before closing a work window; when the wheel is open, B closes the wheel first.
+
 ## Development
 
 ```bash

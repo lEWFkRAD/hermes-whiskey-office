@@ -68,6 +68,7 @@ def main():
     checks.append(execute('office_awareness_conformance', [args.godot, '--headless', '--xr-mode', 'off', '--path', str(ROOT), '--script', 'res://test_office_awareness.gd'], marker='HERMES_OFFICE_AWARENESS_TESTS'))
     checks.append(execute('runtime_guard_conformance', [sys.executable, '-m', 'unittest', 'test_runtime_guard'], marker='OK'))
     checks.append(execute('godot_import', [args.godot, '--headless', '--xr-mode', 'off', '--editor', '--path', str(ROOT), '--import'], timeout=150))
+    checks.append(execute('test_office_tutorial.gd', [args.godot, '--headless', '--xr-mode', 'off', '--path', str(ROOT), '--script', 'res://test_office_tutorial.gd'], marker='HERMES_TUTORIAL_TESTS'))
     for script, marker in [('test_contracts.gd', 'HERMES_CONTRACT_TESTS'), ('test_office_client.gd', 'HERMES_OFFICE_CLIENT_TESTS'), ('test_xr_workbench.gd', 'HERMES_XR_WORKBENCH_TESTS'), ('test_hand_pointer.gd', 'HERMES_HAND_POINTER_TESTS'), ('test_wrist_dial.gd', 'HERMES_WRIST_DIAL_TESTS'), ('test_wrist_controls.gd', 'HERMES_WRIST_CONTROLS_TESTS'), ('test_desktop_surface.gd', 'HERMES_DESKTOP_SURFACE_TESTS')]:
         checks.append(execute(script, [args.godot, '--headless', '--xr-mode', 'off', '--path', str(ROOT), '--script', 'res://'+script], marker=marker))
     checks.append(execute('native_assets', [args.godot, '--headless', '--xr-mode', 'off', '--path', str(ROOT), '--', '--validate'], marker='HERMES_VALIDATION'))

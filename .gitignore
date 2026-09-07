@@ -37,3 +37,4 @@ assets/decoration-source/
 artifacts/
 .tools/
 private-fixture-*/
+control-tips.json
