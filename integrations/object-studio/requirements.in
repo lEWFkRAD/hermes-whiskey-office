@@ -1,5 +1,5 @@
 fastapi>=0.115,<1
-uvicorn>=0.34,<1
+uvicorn>=0.52.4,<1
 websockets>=14,<17
 websocket-client>=1.8,<2
 httpx>=0.28,<1
