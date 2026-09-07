@@ -1,0 +1,65 @@
+extends SceneTree
+const Maker = preload("res://office_fabricator.gd")
+const Podium = preload("res://office_hologram.gd")
+var failures: Array[String] = []
+var checks := 0
+func check(value: bool, message: String) -> void:
+	checks += 1
+	if not value: failures.append(message)
+func _initialize() -> void: run.call_deferred()
+func run() -> void:
+	var ipc := OS.get_environment("HERMES_PODIUM_IPC_DIR")
+	var state: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(ipc.path_join("status.json")))
+	var job: Dictionary = state.jobs[0]
+	var digest := FileAccess.get_sha256(job.path)
+	var head := Camera3D.new()
+	root.add_child(head)
+	var podium := Podium.new()
+	root.add_child(podium)
+	podium.setup(head, func(_path: String) -> Node3D: return null, false)
+	var maker := Maker.new()
+	root.add_child(maker)
+	maker.setup(podium, head, false)
+	maker.refresh()
+	check(is_instance_valid(podium.projection), "Actual pipeline output automatically arrives on the podium")
+	if not is_instance_valid(podium.projection):
+		print("PODIUM_LIVE_ACCEPTANCE ", JSON.stringify({"checks": checks, "failures": failures}))
+		quit(1)
+		return
+	var item: Node3D = podium.projection
+	check(Podium.model_bounds(item).size.length() > 0.1, "Actual generated mesh has visible bounds")
+	var pose := Transform3D(Basis.IDENTITY, item.global_position + Vector3(0, 0, 2))
+	check(maker.grab_input(pose, Vector3.FORWARD, true), "Actual generated object can be picked up")
+	pose.origin += Vector3(0.8, 0.2, 0.1)
+	pose.basis = Basis(Vector3.UP, 0.25)
+	maker.grab_input(pose, Vector3.FORWARD, true)
+	maker.grab_input(pose, Vector3.FORWARD, false)
+	var placed := item.global_transform
+	check(maker.placements.has(job.id), "Actual model placement written")
+	maker.free()
+	podium.clear()
+	var next := Maker.new()
+	root.add_child(next)
+	next.setup(podium, head, false)
+	next.refresh()
+	check(next.objects.has(job.id), "Placed object restored in a fresh session")
+	if next.objects.has(job.id): check(next.objects[job.id].global_transform.is_equal_approx(placed), "Restored position and rotation match")
+	check(FileAccess.get_sha256(job.path) == digest, "Pickup and placement preserve generated GLB bytes")
+	next.return_held()
+	check(is_instance_valid(podium.projection) and next.objects.is_empty(), "Return object recalls to the podium without duplicating")
+	next.free()
+	var again := Maker.new()
+	root.add_child(again)
+	podium.clear()
+	again.setup(podium, head, false)
+	again.refresh()
+	check(is_instance_valid(podium.projection), "Reopening restores the ready podium model")
+	var report := {"checks": checks, "failures": failures, "job_id": job.job_id, "sha256": digest}
+	var file := FileAccess.open(ipc.path_join("delivery-acceptance.json"), FileAccess.WRITE)
+	file.store_string(JSON.stringify(report))
+	file.close()
+	print("PODIUM_LIVE_ACCEPTANCE ", JSON.stringify(report))
+	again.free()
+	podium.free()
+	head.free()
+	quit(0 if failures.is_empty() else 1)

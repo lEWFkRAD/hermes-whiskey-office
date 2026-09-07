@@ -1,0 +1,25 @@
+Asset: club-chair-v1.png
+Created: 2026-09-06
+Generator: built-in image_gen tool (no CLI/API fallback)
+Intended use: image-to-3D furniture reconstruction for Hermes whiskey-room office
+Intended real-world width: 0.95m
+Input reference images: none for initial generation
+Visual inspection: full isolated photorealistic chair; brown/cognac patina; deep tufted back; rolled arms; single seat cushion; dark walnut feet; restrained brass nailheads; all four feet discernible; plain gray background; no text or props. Rear left foot is partly occluded by the chair body as expected for this perspective.
+
+EXACT INITIAL PROMPT
+Use case: product-mockup
+Asset type: source image for image-to-3D reconstruction of a furniture asset in a realistic whiskey-room office.
+Primary request: One beautiful cognac-brown leather deep Chesterfield club chair, photographed as a single isolated piece of furniture.
+Scene/backdrop: seamless neutral light gray studio background with only a very soft contact shadow.
+Subject: realistic compact club chair, intended real-world width 0.95 meters; deep comfortable seat cushion, button-tufted leather back, rolled leather arms, rich natural worn-in patina, four short dark walnut wooden feet, restrained antique brass nailhead trim.
+Style/medium: highly photorealistic premium furniture product photography, believable construction and accurate furniture proportions. Leather grain, subtle creases, hand-finished walnut and small aged brass studs are clearly resolved.
+Composition/framing: one front three-quarter view, whole chair centered and fully visible with generous clear margin on every side; camera angle selected so all four legs are individually visible and unobscured, while clearly showing the seat, back and both rolled arms. Moderate perspective, no wide-angle distortion.
+Lighting/mood: soft even neutral studio illumination, clean shape readability, no dramatic or colored lighting.
+Constraints: exactly one chair, no other objects, no person, no floor clutter, no props, no pillows, no blanket, no text, no logo, no watermark, no collage, no multiple views, no room scene; do not crop any part of the chair.
+
+EXACT FINAL EDIT PROMPT
+Use case: precise-object-edit
+Asset type: source image for image-to-3D reconstruction.
+Primary request: Preserve this exact photorealistic cognac leather Chesterfield club chair and its materials, but adjust the product photograph so all FOUR separate dark walnut feet are visible. Currently only three feet can be seen. Show the far rear left foot through the open gap underneath the chair, between the two front feet. Use a slightly lower camera angle and modestly taller feet if needed, while keeping realistic compact club-chair proportions and chair width approximately 0.95m.
+Invariants: exactly one whole isolated chair; same leather patina, deep tufted back, rolled arms, single seat cushion, antique brass nailhead edging; neutral light gray studio background, soft even light, restrained contact shadow; no props, no text, no watermark, no multiple views.
+Composition: full front three-quarter chair, no cropping, generous margins; clearly discernible four feet grounded on the same plane.

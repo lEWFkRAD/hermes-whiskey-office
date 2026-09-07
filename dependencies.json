@@ -1,0 +1,115 @@
+{
+  "schema": 1,
+  "validated_baseline_date": "2026-09-06",
+  "dependencies": [
+    {
+      "name": "Godot",
+      "version": "4.7.2-stable",
+      "source": "https://github.com/godotengine/godot",
+      "license": "MIT",
+      "scope": "required runtime",
+      "linux_x86_64_zip_sha256": "cadd3204e728a35d3f13adb7fd0d7902636b79f6b95c40c265eb73b6c35329e4"
+    },
+    {
+      "name": "Hermes Desktop",
+      "version": "v2026.8.31",
+      "commit": "29112bef099274229cadff79cdff7bf7b99c4b77",
+      "source": "https://github.com/NousResearch/hermes-agent",
+      "license": "MIT",
+      "scope": "live integration",
+      "transitive_lock": "upstream package-lock.json"
+    },
+    {
+      "name": "Hermes backend",
+      "version": "0.21.0",
+      "commit": "693641aa8b4359c602283bdbbc14041e03bc47bc",
+      "source": "https://github.com/NousResearch/hermes-agent",
+      "license": "MIT",
+      "scope": "live integration; separate installation"
+    },
+    {
+      "name": "Python",
+      "version": "3.12",
+      "scope": "capture/server and tests",
+      "locks": [
+        "requirements.lock",
+        "requirements-dev.lock",
+        "integrations/object-studio/requirements.lock"
+      ]
+    },
+    {
+      "name": "Node.js",
+      "version": "22.22.0",
+      "source": "https://nodejs.org/dist/v22.22.0/",
+      "scope": "Desktop build and context tests"
+    },
+    {
+      "name": "Blender/bpy",
+      "version": "5.0.1",
+      "source": "https://www.blender.org",
+      "license": "GPL",
+      "scope": "optional asset authoring"
+    },
+    {
+      "name": "WiVRn",
+      "source": "https://github.com/WiVRn/WiVRn",
+      "license": "GPL-3.0",
+      "scope": "optional system OpenXR runtime; choose compatible runtime/driver for your headset; not auto-installed"
+    },
+    {
+      "name": "Camera to Blender",
+      "commit": "3de881fb3aa5a7a2bfd243e34ba4190c88c803de",
+      "source": "https://github.com/ahujasid/camera-to-blender",
+      "license": "MIT",
+      "scope": "adapted source included"
+    },
+    {
+      "name": "trellis.cpp",
+      "version": "v0.6.0",
+      "source": "https://github.com/pwilkin/trellis.cpp",
+      "license": "MIT plus upstream dependency notices",
+      "archive_sha256": "ae93c21eb03b1128fb533390a6e6a92c39f43443e9b36a59a8a72cd6ce7b7655",
+      "scope": "optional separately installed GPU runtime"
+    },
+    {
+      "name": "trellis2-gguf",
+      "revision": "a57397bd3d351599d9729fc144b3f87c3f87d65b",
+      "source": "https://huggingface.co/ilintar/trellis2-gguf",
+      "license": "Model card delegates to source components; review upstream terms",
+      "scope": "optional separate download; per-file LFS SHA256 verified"
+    },
+    {
+      "name": "model-viewer",
+      "version": "4.1.0",
+      "source": "https://github.com/google/model-viewer",
+      "license": "Apache-2.0",
+      "scope": "optional Object Studio browser preview CDN"
+    },
+    {
+      "name": "Hermes SSH",
+      "version": "0.3.3",
+      "commit": "83d9e596130f9ea10ed5daefca8b20006c70af5d",
+      "source": "https://github.com/Adolanium/hermes-ssh",
+      "license": "No standalone license found at reviewed revision; not redistributed",
+      "scope": "optional upstream-installed plugin"
+    },
+    {
+      "name": "Linux packages",
+      "packages": [
+        "xvfb",
+        "x11-utils",
+        "xauth",
+        "dbus-x11",
+        "at-spi2-core",
+        "python3-pyatspi",
+        "gnome-terminal",
+        "nautilus",
+        "remmina",
+        "xterm",
+        "pulseaudio-utils",
+        "openssh-client"
+      ],
+      "scope": "optional live integration; distro security updates, not vendored"
+    }
+  ]
+}

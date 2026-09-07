@@ -1,0 +1,404 @@
+{
+  "app/assets/club-chair.glb": {
+    "sha256": "9eb7b7e83ad7f6c6751dddb937ac7eb38d4ef2c7805daf9e3579dacf39f4ce8d",
+    "bytes": 9895884,
+    "license": "MIT",
+    "origin": "Original generated image / Trellis conversion / Blender reconstruction; docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/bar-decanter.glb": {
+    "sha256": "501f0265b8ebbcc8654efd00087ae753bdca3dacff3d7fc9fc3ca48c867dec5b",
+    "bytes": 72092,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/bar-drinks-table.glb": {
+    "sha256": "3e07eba7d91482eab52ac5ce0e4a326a319b72d2e3147d4be9413ca7a0117b2b",
+    "bytes": 40804,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/desk-side-broadleaf.glb": {
+    "sha256": "895573bfbdb726bf643828cd2609068a52527a03bfad6d06ca9e6718460c8969",
+    "bytes": 130872,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/desk-terrarium.glb": {
+    "sha256": "1b19fdec114e21874fb1d049173f20cb02d51bdc6172d79ac36d3bbe186efe6a",
+    "bytes": 575476,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/entry-table-plant.glb": {
+    "sha256": "bae3b3789c4b0501b4723c8e1842bcea1833d5f16299cbd5b859af582df9cbf9",
+    "bytes": 125184,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/entry-terrarium.glb": {
+    "sha256": "80924cf5132b9f074dc45981a14b3bd5546aae17a288b73315eed9f215f5c53b",
+    "bytes": 578228,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/front-palm.glb": {
+    "sha256": "b8795796ebc3355f0858c0923fad1b53a3148a3b7f89186ad3d84e322f4a8216",
+    "bytes": 540388,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/hologram-podium.glb": {
+    "sha256": "e2e87c77f548e5899d69e93938de9e2038dd8e5e2248ce8b0b7857bcc90964d6",
+    "bytes": 292148,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/library-broadleaf.glb": {
+    "sha256": "ea2210253c578c532eb76ecf3291645272fbae30b41d1a64defbf0af62325754",
+    "bytes": 131760,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/library-top-plant.glb": {
+    "sha256": "76e63bb596d3d33bf3c87314f9247678db21cc32aa2354d581497eeac73769fc",
+    "bytes": 124724,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/listening-console.glb": {
+    "sha256": "9d7bc5d4fe01c473ebc3358c29409734dcaf1f6bd28d2f7d4fbd0f5f61bab372",
+    "bytes": 88296,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/listening-terrarium.glb": {
+    "sha256": "a3d1cd1a67101d73b82208a97d4828d96b5faff5d61eac413132542805df9bce",
+    "bytes": 576452,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/lounge-lamp-table.glb": {
+    "sha256": "91b9ee1fee6517682e000565d0a5b894e694ef98b4f42c2e7de223a7ebaf741f",
+    "bytes": 40832,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/lounge-linen-lamp.glb": {
+    "sha256": "eb6f22ab4475ee3c7f9a5432f07a1334a57fde4938bcaebdf4cb2a2b1404e636",
+    "bytes": 55384,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/low-table-plant.glb": {
+    "sha256": "f5b6b3ba72efa487cab7dde0e86ebcc2dec1f7e1b8eff50d28c3391fad92dfac",
+    "bytes": 124468,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/nesting-decanter.glb": {
+    "sha256": "ce4dabc071678c9d01eb1e063dd103a0fb28128948b30ea5e2aa9fa9784f1ad8",
+    "bytes": 80796,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/nesting-linen-lamp.glb": {
+    "sha256": "16428309aac476c6d31f37b91964bf490a29cd0bbfd53faaabe8eb081e9cdedb",
+    "bytes": 54972,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/nesting-table-low.glb": {
+    "sha256": "3829316aec77ec1b7640d604287de82512e301bae395c5b3d2d8187fe79bcb87",
+    "bytes": 40828,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/nesting-table-tall.glb": {
+    "sha256": "1b80426ecfd0be78613423a273a095df0b104fcb5482b9d14098fc4bb0ba94a4",
+    "bytes": 40868,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/rear-decanter.glb": {
+    "sha256": "3b4953abbe1dbf608cf23d7ac0fa8149b370167a5efbc5a8a36e58372dd176a4",
+    "bytes": 80524,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/rear-drinks-table.glb": {
+    "sha256": "49b1b1325ff2fc2aba5f314df580763d68a5ee5d8402b4384d8fdca40f5eb02a",
+    "bytes": 40844,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/rear-linen-lamp.glb": {
+    "sha256": "9a647f5d4cfa15d11b97a4f0ec7d26822f76fee3c6f4fe5f1ea8fed10acfbbfd",
+    "bytes": 55732,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/reserve-top-plant.glb": {
+    "sha256": "7b1c5ca9ddc2ee8110b61ca3dc5333f1b691a4922117d5e645069a5fa48169a3",
+    "bytes": 124324,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/shared-work-island.glb": {
+    "sha256": "fb62fd23fca118133367d0ff3ca646e5890c2ebaf52f9e9f30cd3367a927eae0",
+    "bytes": 242876,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/speaker-left.glb": {
+    "sha256": "6fe7a4c363d4d524f6dc31a2ac6d7223d5e658e20a2b3d84d5e147bd1fe10af7",
+    "bytes": 221708,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/speaker-right.glb": {
+    "sha256": "946cdd09452b9b6e7a1596f07f9a03983c315075e5b8889e3d649bff055dcdc5",
+    "bytes": 220728,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/tube-amplifier-left.glb": {
+    "sha256": "0a59eba787f64facd81e88f6851e122df67864d93800a4521ecf24203c929caf",
+    "bytes": 324692,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/tube-amplifier-right.glb": {
+    "sha256": "3076eb19296f4c0e1a2c477be25d015a75f466387654bb69c38067d30993fa10",
+    "bytes": 324996,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/turntable-reference.glb": {
+    "sha256": "8d0210b01babcc795136cf868b6f5df148cf0f8b79b9d6470856c476ed66c672",
+    "bytes": 573220,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/turntable-studio.glb": {
+    "sha256": "274bf266d6a1d1a93682cdf0465adf725a34be6e54d7dfdae42f495295739a3b",
+    "bytes": 572312,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/vinyl-console.glb": {
+    "sha256": "2437c82d93e89de0966d9bc21339f849117b4268556b39c4e2954a1b543d81fc",
+    "bytes": 510968,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/window-decanter.glb": {
+    "sha256": "ad5353840b7c5d72c1180ed3a2e9db5a1bf7a54b3ba4c82e0eae794cffca4ed2",
+    "bytes": 72404,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/window-drinks-table.glb": {
+    "sha256": "82e0a7310e495500097e9d86a9e8b73f9f6bc8eaf2fe2669c3a031f6c443e209",
+    "bytes": 40868,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/decoration-library/window-palm.glb": {
+    "sha256": "2bf404b3ef81e4b95d983a7c3666b50a94e5662801513b06386391de0bbcb07b",
+    "bytes": 538800,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/hermes-companion.glb": {
+    "sha256": "0b6228f366a1eff49946d50f42f780f7007f9a2ff1e097f24efea66089e10a47",
+    "bytes": 19889052,
+    "license": "MIT",
+    "origin": "Original generated image / Trellis conversion / Blender reconstruction; docs/ASSETS.md"
+  },
+  "app/assets/library/armillary.glb": {
+    "sha256": "e33c1e51bced60ad716e3028b3958e94e2da49da8e593bfff19ef886c604f7af",
+    "bytes": 187304,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/library/bookcase-left.glb": {
+    "sha256": "cedf256802af17e7fe0dfb42e264eed6863ef01900ea43ed4a764d582fbe2f05",
+    "bytes": 6899916,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/library/bookcase-right.glb": {
+    "sha256": "503883862332e67560aef891ccbce1942f82d8b86e003b335d4e59604c37e7f9",
+    "bytes": 6835516,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/library/chandelier.glb": {
+    "sha256": "ee51bcaa62c891b048e2877751bb6338e72a1cb0c76d3e3ccb89032fa975b930",
+    "bytes": 330272,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/library/coffee-table.glb": {
+    "sha256": "2dff802783d1f170b2e9a2218b27a2348a33f10cf2fbac376ab17f536f6771a2",
+    "bytes": 4513620,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/library/computer.glb": {
+    "sha256": "f1fa42c8d5a651ad4f30fdd261b5697cae578497481ad1ba073af4a568fd3d03",
+    "bytes": 2688844,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/library/desk-lamp.glb": {
+    "sha256": "3e09575332044b872b7adf12cccfa6c83bcd50382f5ba1867cc618ec518d4849",
+    "bytes": 655772,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/library/desk.glb": {
+    "sha256": "794d82b6fab6b8a81cce72fbd04f48b6d9e0f072fb7620813c6f0726404c58c2",
+    "bytes": 5788884,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/library/entry-console.glb": {
+    "sha256": "1ee64be2e21801b74305e4a4a0c680d4f79f9d830bce44cc168946b4f8dc4ecf",
+    "bytes": 2622096,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/library/espresso.glb": {
+    "sha256": "6296a043345087ed17e95b8c3473ac5704d20e960c40311fa6298a85e8dfe462",
+    "bytes": 63808,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/library/fireplace.glb": {
+    "sha256": "b4567c765ae704ff4ad7db961c69039d831b67c23d5034305c2abd76647789ee",
+    "bytes": 3858952,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/library/keyboard.glb": {
+    "sha256": "2f53212ce3b7396367264015943e15e59b2c5cced5af9e375f99821cd3a2ebc6",
+    "bytes": 400860,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/library/monitor.glb": {
+    "sha256": "8bce86175f14e015189d2f0bad5f58d78dce4b39de625c01ffda07d8c2ee74da",
+    "bytes": 2399616,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/library/mouse.glb": {
+    "sha256": "2deae2325882d0f50db1e99ba3f11abffb654de1c7a1c6ee377573660c9fabd6",
+    "bytes": 12792,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/library/notebook.glb": {
+    "sha256": "1bd8f915830e3f49d5c44c63200fb737b6405a3fce87e6e97593c2d435e181e2",
+    "bytes": 871336,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/library/overmantel.glb": {
+    "sha256": "e37a69f41033ee928d716dbb3bcecd6e770107be56fbfed1d642dcb915aa783d",
+    "bytes": 3229312,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/library/whiskey-cabinet.glb": {
+    "sha256": "78717dbeb348d563f2c28e98491043aee304b2d49631136eaa16477d1fb588bd",
+    "bytes": 7288852,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/office-decorations.glb": {
+    "sha256": "a9263d486963d3516b00587d471360cf8fd738ee7df416aa02dd88795440b76b",
+    "bytes": 6541504,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "app/assets/pbr/dark_wood_diff_2k.jpg": {
+    "sha256": "ff811f97ab46f1148f2753451fd9d64abf0ab9101e85922ed9f45fc3595a3cf2",
+    "bytes": 2894186,
+    "license": "CC0-1.0",
+    "origin": "https://polyhaven.com/a/dark_wood"
+  },
+  "app/assets/pbr/dark_wood_nor_gl_2k.jpg": {
+    "sha256": "624c7262c726cbc7da8ad02941dc6c95dec104fdc20e2804560ea112814b1d5d",
+    "bytes": 1603278,
+    "license": "CC0-1.0",
+    "origin": "https://polyhaven.com/a/dark_wood"
+  },
+  "app/assets/pbr/dark_wood_rough_2k.jpg": {
+    "sha256": "09eb42a24aeadcd5dd04d19f89d8df4116fd9cdbd405d0dab17e263b54ece133",
+    "bytes": 2325418,
+    "license": "CC0-1.0",
+    "origin": "https://polyhaven.com/a/dark_wood"
+  },
+  "app/assets/pbr/highland-loch-painting.png": {
+    "sha256": "e003b6a6fd96628507cc896d984517f586460238746e07c5295b6bd01740350d",
+    "bytes": 2433575,
+    "license": "MIT",
+    "origin": "Original imagegen landscape"
+  },
+  "app/assets/pbr/white_plaster_02_diff_2k.jpg": {
+    "sha256": "0ca5245ba70777d3e41ff4566c9f8d363855461891802c55cb7dc0f6f85f084e",
+    "bytes": 2568315,
+    "license": "CC0-1.0",
+    "origin": "https://polyhaven.com/a/white_plaster_02"
+  },
+  "app/assets/pbr/white_plaster_02_nor_gl_2k.jpg": {
+    "sha256": "083579b03a8f31ec1886512e5972f3b893610bf26a2098f97910e0f46745cdc9",
+    "bytes": 3379814,
+    "license": "CC0-1.0",
+    "origin": "https://polyhaven.com/a/white_plaster_02"
+  },
+  "app/assets/whiskey-room.glb": {
+    "sha256": "904d6b3c4568cae07d34abd4de2ac3a2467b41f369d839b915cb581a28dd14e6",
+    "bytes": 27314124,
+    "license": "MIT",
+    "origin": "Original procedural room/decorations; see modeling/ and docs/ASSETS.md"
+  },
+  "assets/conversions/club-chair-v1/final.glb": {
+    "sha256": "d952d21fdaea1574dc02496d110231441997b5a9b681d3a6cfc6b140b8348b4e",
+    "bytes": 22059564,
+    "license": "MIT",
+    "origin": "Original generated image / Trellis conversion / Blender reconstruction; docs/ASSETS.md"
+  },
+  "assets/conversions/hermes-companion-v1/final.glb": {
+    "sha256": "0f1b20c473a5fe5b2351b2d7044dc033f4076aaa5e838a1b24323a6218eb459b",
+    "bytes": 23134820,
+    "license": "MIT",
+    "origin": "Original generated image / Trellis conversion / Blender reconstruction; docs/ASSETS.md"
+  },
+  "assets/conversions/hermes-head-fast-v1/final.glb": {
+    "sha256": "66af5ad0a6bea747949d7bb1fa49827d1c59aa24e79e5b5f8c9d2b2ef3026044",
+    "bytes": 8671700,
+    "license": "MIT",
+    "origin": "Original generated image / Trellis conversion / Blender reconstruction; docs/ASSETS.md"
+  },
+  "assets/source/club-chair-v1.png": {
+    "sha256": "f1cdebc5681338cff9beae5e543b681fa143ae1afe7604c4fb1709d3aee647e4",
+    "bytes": 1995662,
+    "license": "MIT",
+    "origin": "Original generated image / Trellis conversion / Blender reconstruction; docs/ASSETS.md"
+  },
+  "assets/source/hermes-companion-v1.png": {
+    "sha256": "fada561313287b4ebade8ba31c5310169ffc46e9f90e7416c0242ac234e4396d",
+    "bytes": 2080967,
+    "license": "MIT",
+    "origin": "Original generated image / Trellis conversion / Blender reconstruction; docs/ASSETS.md"
+  },
+  "assets/source/hermes-head-v1.png": {
+    "sha256": "65faedb768e881a480a54002e55f255b6011dfc142424f2f9c9678df4d5b17d8",
+    "bytes": 2096318,
+    "license": "MIT",
+    "origin": "Original generated image / Trellis conversion / Blender reconstruction; docs/ASSETS.md"
+  }
+}

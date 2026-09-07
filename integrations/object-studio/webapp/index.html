@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090914"><meta name="description" content="Turn a photo into a textured 3D object on your private local workspace.">
+<title>Camera to Blender — Object Studio</title>
+<link rel="stylesheet" href="studio.css?v=3">
+<link rel="stylesheet" href="synthwave.css?v=2">
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.1.0/model-viewer.min.js"></script>
+</head>
+<body>
+<header class="topbar"><a href="/" class="brand"><span class="brand-icon" aria-hidden="true">◈</span><span>Object Studio<small>CAMERA TO BLENDER</small></span></a><span id="connection" class="connection">Checking Blender…</span></header>
+<main class="layout">
+<aside class="library"><div class="library-head"><div><p class="eyebrow">YOUR WORKSPACE</p><h2>Objects <span id="count">0</span></h2></div><button id="newObject" class="icon-button" aria-label="New object">＋</button></div><p class="library-note">Saved here, ready when you are.</p><div id="jobList" class="job-list" aria-label="Saved objects"></div><div class="privacy-note"><span aria-hidden="true">◉</span> Private workspace<br><small>Photos and models stay on your machines.</small></div></aside>
+<section class="workspace">
+<div id="activeBanner" class="active-banner" hidden></div>
+<div class="workspace-heading"><div><p class="eyebrow" id="workspaceEyebrow">FROM YOUR WORLD TO 3D</p><h1 id="title">Make something tangible.</h1><p id="subtitle">One clear photo. A textured object. Ready for Blender.</p></div><button id="backToCapture" class="secondary" hidden>New object</button></div>
+<div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+<section id="captureView" class="capture-card">
+<div id="dropZone" class="drop-zone"><div id="emptyCapture"><div class="capture-symbol" aria-hidden="true">⌁</div><h2>Start with an object</h2><p>Place it in good light against a simple background.<br>Keep the whole object in frame.</p><div class="capture-buttons"><button id="takePhoto" class="primary">Take a photo</button><button id="choosePhoto" class="secondary">Choose a photo</button></div><small>Or drop a photo here · JPG, PNG or WebP · up to 20 MB</small></div><img id="sourcePreview" alt="Your source photo" hidden></div>
+<input id="cameraInput" type="file" accept="image/*" capture="environment" hidden><input id="fileInput" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+<div id="draftControls" class="draft-controls" hidden><button id="replacePhoto" class="text-button">Replace photo</button><button id="rotatePhoto" class="text-button">Rotate 90°</button><button id="cropPhoto" class="text-button">Crop to square</button></div>
+<div class="capture-settings"><label class="field">Object name<input id="objectName" maxlength="80" placeholder="e.g. My controller" autocomplete="off"></label><fieldset class="quality"><legend>Quality</legend><label><input type="radio" name="quality" value="fast"><span><strong>Fast</strong><small>Try the shape · less detail</small></span></label><label><input type="radio" name="quality" value="detailed" checked><span><strong>Detailed</strong><small>Sharper shape & textures</small></span></label></fieldset><button id="generate" class="primary generate" disabled>Generate object <span aria-hidden="true">↗</span></button><p class="fine-print">Background removal happens on Forge. Generation may take several minutes.</p></div>
+</section>
+<section id="jobView" hidden><div id="buildNavigation" class="build-navigation" hidden><div class="build-title"><strong>Live Build</strong><button id="followBuild" class="text-button">Following live</button></div><div class="build-tabs" role="group" aria-label="Build checkpoints"><button id="build-photo">Original</button><button id="build-cutout">Cutout</button><button id="build-mesh">Surface</button><button id="build-wire">Wireframe</button><button id="build-final">Finished</button></div><p id="buildNote" class="fine-print"></p></div>
+<div class="viewer-card"><div class="viewer-toolbar"><span id="jobBadge" class="badge">Working</span><button id="resetView" class="text-button" hidden>Reset view</button></div><div id="buildPreview" hidden><div class="build-canvas"><img id="buildPhoto" alt="Build checkpoint"><model-viewer id="buildMesh" alt="Simplified decoded mesh" camera-controls auto-rotate touch-action="pan-y" exposure="1.2" environment-image="neutral" hidden></model-viewer></div><p id="buildCaption"></p><p id="buildStage" role="status" aria-live="polite"></p></div><div id="workingView" class="working-view"><img id="workingPhoto" alt="Source photo" hidden><div id="workingIcon" class="working-icon" aria-hidden="true">◈</div><h2 id="stage">Connecting to Forge</h2><p id="elapsed">0:00 elapsed</p><div id="stageSteps" class="stage-steps"><span>Photo saved</span><span>Generate</span><span>Validate</span><span>Ready</span></div><p id="workingHint">You can leave this page. Your job and photo are saved.</p></div><model-viewer id="modelViewer" alt="Your generated 3D object" camera-controls touch-action="pan-y" shadow-intensity="0.6" exposure="1.15" environment-image="neutral" hidden></model-viewer><div id="viewerSettings" class="viewer-settings" hidden><label>Light <input id="lighting" type="range" min="0.5" max="2.5" value="1.15" step="0.05"></label><label><input id="rotateModel" type="checkbox"> Auto-rotate</label></div></div>
+<div class="result-bar"><div id="modelStats" class="model-stats"></div><div class="result-actions"><button id="sendBlender" class="primary" hidden>Send to Blender ↗</button><a id="downloadModel" class="secondary" hidden download>Download GLB</a><button id="retryJob" class="secondary" hidden>Retry saved photo</button><button id="stopJob" class="secondary stop-job" hidden>Stop job</button><button id="leaveJob" class="secondary" hidden>Back to workspace</button></div></div><div class="source-row"><img id="savedPhoto" alt="Saved source photo" hidden><div><p id="sourceCaption">Source photo</p><small id="jobDetails"></small></div><button id="deleteJob" class="text-button danger" hidden>Move to trash</button></div><p class="fine-print">A single photo estimates hidden surfaces. Inspect the model before using it; physical scale is not measured.</p>
+</section>
+<footer>Built from your perspective.<span>Local generation · No cloud fallback</span></footer>
+</section>
+</main>
+<script src="live-build.js?v=4"></script><script src="studio.js?v=5"></script>
+</body></html>

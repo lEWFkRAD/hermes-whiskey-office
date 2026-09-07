@@ -1,0 +1,33 @@
+; Forge RTX 5090 quality defaults. --rendering-method gl_compatibility is the fallback.
+config_version=5
+
+[application]
+config/name="Hermes · The Whiskey Room"
+run/main_scene="res://main.tscn"
+config/features=PackedStringArray("4.3", "Forward Plus")
+
+[display]
+window/size/viewport_width=1600
+window/size/viewport_height=1000
+window/size/window_width_override=1440
+window/size/window_height_override=900
+window/stretch/mode="canvas_items"
+
+[rendering]
+renderer/rendering_method="forward_plus"
+renderer/rendering_method.mobile="mobile"
+textures/default_filters/use_nearest_mipmap_filter=false
+textures/default_filters/anisotropic_filtering_level=3
+anti_aliasing/quality/msaa_3d=2
+lights_and_shadows/directional_shadow/size=4096
+lights_and_shadows/positional_shadow/atlas_size=4096
+reflections/reflection_atlas/reflection_size=512
+environment/ssao/quality=2
+environment/ssil/quality=2
+environment/defaults/default_clear_color=Color(0.06, 0.045, 0.035, 1)
+
+[xr]
+openxr/enabled=true
+openxr/extensions/hand_tracking=true
+openxr/extensions/hand_interaction_profile=true
+openxr/default_action_map="res://openxr_action_map.tres"

@@ -1,0 +1,18 @@
+Tool mode: built-in image_gen.imagegen; new character generation using canonical image as design reference.
+Workspace asset: products/hermes-whiskey-office/assets/source/hermes-companion-v1.png
+Intended physical height: 1.70 meters
+Visual inspection: Complete full body and both closed shoes visible; near-front relaxed A-pose; arms and hands separate from body; neutral gray studio; adult photographic appearance; black bob and bangs, white headset, N collar cue, ivory blouse and charcoal tailoring preserved.
+
+Exact prompt:
+Use case: photorealistic-natural
+Asset type: full-body studio character source for an image-to-3D office companion, intended physical height 1.70 meters.
+Primary request: Create a new photorealistic full-body portrait of Hermes as a clearly adult professional woman, approximately 30 years old, using the attached illustration only as a reference for recognizable character design cues. Translate her into a believable human with natural adult facial proportions, realistic eyes, detailed skin, and realistic individual hair strands.
+Input image: character design reference only. Preserve a glossy black shoulder-length bob with straight bangs, a slim white headphone headband with compact ear pieces, and a small tasteful white collar tag bearing the single black letter "N".
+Subject: One adult woman standing in a relaxed symmetric A-pose, upright with a calm friendly neutral expression, arms angled slightly away from her torso, both hands entirely visible with naturally grouped relaxed fingers, legs uncrossed and separated slightly. Elegant ivory long-sleeved blouse, tailored charcoal waistcoat and matching full-length charcoal trousers, closed black low-heeled leather shoes. Realistic human proportions, understated professional styling, clothing fitted for ordinary office work.
+Scene/backdrop: Seamless neutral light gray studio backdrop and floor. No objects or furnishings.
+Composition/framing: Single character, complete body including entire shoes and a little space beneath the feet; near-front view with only a very slight three-quarter turn, camera level at torso height, long-lens low-perspective-distortion character capture, centered portrait orientation. Arms and hands separated from waist and legs with clear empty gaps for 3D reconstruction. No cropped body parts.
+Lighting/mood: Broad soft even neutral studio lighting, soft minimal contact shadow, no dramatic shadows, no backlight or rim light.
+Materials/textures: Natural skin texture and facial features, realistic black hair, woven ivory blouse, fine matte charcoal wool tailoring, subtle leather shoe texture.
+Text (verbatim): Only a small "N" on the collar tag; no other text.
+Constraints: Photographic realism. One human figure only, one view only. Preserve black bangs/bob, slim white headset, and small N collar cue from the design reference. This is a realistic adult professional character for an elegant whiskey-room office.
+Avoid: Anime, illustration, school uniform, exaggerated eyes or body proportions, teenager, childlike styling, hats, glasses, props, jewelry other than the small collar tag, bags, weapons, visible office scenery, extra limbs, duplicate people, dynamic pose, hands touching the torso, crossed legs, text overlays, borders, watermark.

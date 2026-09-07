@@ -1,0 +1,3 @@
+# Desktop capture; AT-SPI comes from the distribution's python3-pyatspi.
+Pillow>=11.3,<13
+python-xlib==0.33

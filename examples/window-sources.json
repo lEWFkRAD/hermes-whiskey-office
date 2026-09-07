@@ -1,0 +1,4 @@
+[
+  {"id":"workstation","title":"Workstation terminal","machine":"My workstation","command":["/usr/bin/xterm","-e","ssh","-o","BatchMode=yes","-o","StrictHostKeyChecking=yes","office-workstation"]},
+  {"id":"remote-desktop","title":"Remote desktop","machine":"Choose in Remmina","command":["/usr/bin/remmina","--new"]}
+]

@@ -1,0 +1,172 @@
+[
+  {
+    "id": "listening-console",
+    "name": "Walnut listening credenza",
+    "library_path": "res://assets/decoration-library/listening-console.glb"
+  },
+  {
+    "id": "speaker-left",
+    "name": "Walnut reference loudspeaker",
+    "library_path": "res://assets/decoration-library/speaker-left.glb"
+  },
+  {
+    "id": "speaker-right",
+    "name": "Walnut reference loudspeaker",
+    "library_path": "res://assets/decoration-library/speaker-right.glb"
+  },
+  {
+    "id": "tube-amplifier-left",
+    "name": "Single-ended vacuum tube amplifier",
+    "library_path": "res://assets/decoration-library/tube-amplifier-left.glb"
+  },
+  {
+    "id": "tube-amplifier-right",
+    "name": "Single-ended vacuum tube amplifier",
+    "library_path": "res://assets/decoration-library/tube-amplifier-right.glb"
+  },
+  {
+    "id": "listening-terrarium",
+    "name": "Brass framed planted terrarium",
+    "library_path": "res://assets/decoration-library/listening-terrarium.glb"
+  },
+  {
+    "id": "desk-terrarium",
+    "name": "Brass framed planted terrarium",
+    "library_path": "res://assets/decoration-library/desk-terrarium.glb"
+  },
+  {
+    "id": "entry-terrarium",
+    "name": "Brass framed planted terrarium",
+    "library_path": "res://assets/decoration-library/entry-terrarium.glb"
+  },
+  {
+    "id": "shared-work-island",
+    "name": "Shared work and loading desk",
+    "library_path": "res://assets/decoration-library/shared-work-island.glb"
+  },
+  {
+    "id": "window-drinks-table",
+    "name": "Occasional table",
+    "library_path": "res://assets/decoration-library/window-drinks-table.glb"
+  },
+  {
+    "id": "lounge-lamp-table",
+    "name": "Occasional table",
+    "library_path": "res://assets/decoration-library/lounge-lamp-table.glb"
+  },
+  {
+    "id": "rear-drinks-table",
+    "name": "Occasional table",
+    "library_path": "res://assets/decoration-library/rear-drinks-table.glb"
+  },
+  {
+    "id": "bar-drinks-table",
+    "name": "Occasional table",
+    "library_path": "res://assets/decoration-library/bar-drinks-table.glb"
+  },
+  {
+    "id": "nesting-table-tall",
+    "name": "Occasional table",
+    "library_path": "res://assets/decoration-library/nesting-table-tall.glb"
+  },
+  {
+    "id": "nesting-table-low",
+    "name": "Occasional table",
+    "library_path": "res://assets/decoration-library/nesting-table-low.glb"
+  },
+  {
+    "id": "window-decanter",
+    "name": "Faceted crystal whiskey decanter",
+    "library_path": "res://assets/decoration-library/window-decanter.glb"
+  },
+  {
+    "id": "rear-decanter",
+    "name": "Faceted crystal whiskey decanter",
+    "library_path": "res://assets/decoration-library/rear-decanter.glb"
+  },
+  {
+    "id": "bar-decanter",
+    "name": "Faceted crystal whiskey decanter",
+    "library_path": "res://assets/decoration-library/bar-decanter.glb"
+  },
+  {
+    "id": "nesting-decanter",
+    "name": "Faceted crystal whiskey decanter",
+    "library_path": "res://assets/decoration-library/nesting-decanter.glb"
+  },
+  {
+    "id": "lounge-linen-lamp",
+    "name": "Soft linen table lamp",
+    "library_path": "res://assets/decoration-library/lounge-linen-lamp.glb"
+  },
+  {
+    "id": "rear-linen-lamp",
+    "name": "Soft linen table lamp",
+    "library_path": "res://assets/decoration-library/rear-linen-lamp.glb"
+  },
+  {
+    "id": "nesting-linen-lamp",
+    "name": "Soft linen table lamp",
+    "library_path": "res://assets/decoration-library/nesting-linen-lamp.glb"
+  },
+  {
+    "id": "window-palm",
+    "name": "Indoor palm",
+    "library_path": "res://assets/decoration-library/window-palm.glb"
+  },
+  {
+    "id": "library-broadleaf",
+    "name": "Broad-leaf indoor plant",
+    "library_path": "res://assets/decoration-library/library-broadleaf.glb"
+  },
+  {
+    "id": "desk-side-broadleaf",
+    "name": "Broad-leaf indoor plant",
+    "library_path": "res://assets/decoration-library/desk-side-broadleaf.glb"
+  },
+  {
+    "id": "front-palm",
+    "name": "Indoor palm",
+    "library_path": "res://assets/decoration-library/front-palm.glb"
+  },
+  {
+    "id": "library-top-plant",
+    "name": "Broad-leaf indoor plant",
+    "library_path": "res://assets/decoration-library/library-top-plant.glb"
+  },
+  {
+    "id": "reserve-top-plant",
+    "name": "Broad-leaf indoor plant",
+    "library_path": "res://assets/decoration-library/reserve-top-plant.glb"
+  },
+  {
+    "id": "entry-table-plant",
+    "name": "Broad-leaf indoor plant",
+    "library_path": "res://assets/decoration-library/entry-table-plant.glb"
+  },
+  {
+    "id": "low-table-plant",
+    "name": "Broad-leaf indoor plant",
+    "library_path": "res://assets/decoration-library/low-table-plant.glb"
+  },
+  {
+    "id": "vinyl-console",
+    "name": "Walnut vinyl console",
+    "library_path": "res://assets/decoration-library/vinyl-console.glb"
+  },
+  {
+    "id": "turntable-reference",
+    "name": "Precision belt-drive turntable",
+    "library_path": "res://assets/decoration-library/turntable-reference.glb"
+  },
+  {
+    "id": "turntable-studio",
+    "name": "Precision belt-drive turntable",
+    "library_path": "res://assets/decoration-library/turntable-studio.glb"
+  },
+  {
+    "id": "hologram-podium",
+    "name": "Circular walnut hologram podium",
+    "library_path": "res://assets/decoration-library/hologram-podium.glb"
+  }
+]

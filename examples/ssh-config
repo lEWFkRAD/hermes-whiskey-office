@@ -1,0 +1,8 @@
+# Add to your own ~/.ssh/config after independently verifying the server key.
+Host office-workstation
+    HostName workstation.example.com
+    User your-user
+    IdentityFile ~/.ssh/office-workstation
+    IdentitiesOnly yes
+    StrictHostKeyChecking yes
+    ForwardAgent no
