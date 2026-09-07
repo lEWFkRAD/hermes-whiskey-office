@@ -35,7 +35,7 @@ def model():
 
 class StudioTests(unittest.IsolatedAsyncioTestCase):
     def setUp(self):
-        self.temp = tempfile.TemporaryDirectory(dir=Path(__file__).parent/'acceptance')
+        self.temp = tempfile.TemporaryDirectory(prefix='object-studio-test-')
         self.backend = ForgeBackend(self.temp.name)
     def tearDown(self):
         self.temp.cleanup()
@@ -101,7 +101,7 @@ class StudioTests(unittest.IsolatedAsyncioTestCase):
 
 class ImportTests(unittest.TestCase):
     def test_actual_ack_required_and_owned_by_target_socket(self):
-        with tempfile.TemporaryDirectory(dir=Path(__file__).parent/'acceptance') as directory:
+        with tempfile.TemporaryDirectory(prefix='object-studio-test-') as directory:
             backend=ForgeBackend(directory)
             key='a'*32
             backend.jobs[key]={'id':key,'name':'test','created_at':time.time(),'finished_at':time.time(),'status':'success','stage':'Ready','preset':'detailed','has_photo':False}
