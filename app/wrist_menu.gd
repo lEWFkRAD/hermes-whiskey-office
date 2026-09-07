@@ -166,7 +166,7 @@ func present(state: Dictionary) -> void:
 	var selected := int(state.get("selected_index", 0))
 	var progress := float(state.get("progress", 0.0))
 	var angle := float(state.get("dialangle_degrees", 0.0))
-	if progress > 0: angle = selected * 45.0
+	if progress > 0: angle = selected * 360.0 / maxf(_canvas.entries.size(), 1)
 	var note := "Release to select" if progress >= 1.0 else ("Hold pinch / trigger…" if progress > 0.0 else "Twist or right stick")
 	_cuff_material.albedo_color = Color(1.0, 0.79, 0.42, 0.95) if progress > 0 else Color(0.42, 0.88, 1.0, 0.85)
 	_cuff_material.emission = Color(1.0, 0.6, 0.2) if progress > 0 else Color(0.22, 0.76, 1.0)

@@ -1,6 +1,6 @@
 extends Node3D
-## Native office renderer. JSON snapshots are read-only; only a deliberate voice
-## request writes the original bridge's vr-voice-request.json contract.
+## Native office renderer. Context snapshots remain read-only for clients.
+## Explicit, validated actions are applied by the running scene and acknowledged.
 
 const CREAM := Color("f0e4cf")
 const MUTED := Color("bcae97")
@@ -83,6 +83,8 @@ var room_environment: WorldEnvironment
 var room_models: Array[Node3D] = []
 var hand_pointer
 var left_hand_pointer
+var xr_feedback
+var controller_grips: Array[XRController3D] = []
 var desktop_surface
 var office_windows
 var desktop_preview: Control
@@ -137,6 +139,9 @@ func _ready() -> void:
 	var awareness: Node = load("res://office_awareness.gd").new()
 	add_child(awareness)
 	awareness.setup(self)
+	var scene_commands: Node = load("res://office_scene_commands.gd").new()
+	add_child(scene_commands)
+	scene_commands.setup(self, awareness.path.get_base_dir() if not awareness.path.is_empty() else "", awareness.instance)
 	if OS.get_environment("HERMES_OFFICE_PARTS_PREVIEW") == "1": build_assembly_review()
 	refresh_snapshots()
 	if wrist_controls and OS.get_environment("HERMES_OFFICE_WRIST_PREVIEW") == "1":
@@ -479,6 +484,14 @@ func build_camera_rig() -> void:
 		controller.pose = &"aim"
 		xr_origin.add_child(controller)
 		controllers.append(controller)
+		var grip := XRController3D.new()
+		grip.tracker = StringName(hand)
+		grip.pose = &"grip"
+		xr_origin.add_child(grip)
+		controller_grips.append(grip)
+	xr_feedback = load("res://xr_feedback.gd").new()
+	add_child(xr_feedback)
+	xr_feedback.setup()
 	camera = Camera3D.new()
 	camera.name = "DesktopCamera"
 	camera.fov = 65.0
@@ -1567,6 +1580,12 @@ func update_xr_interaction(delta: float) -> void:
 	var right := controllers[1]
 	var left := controllers[0]
 	var hand: Dictionary = hand_pointer.sample(xr_origin) if hand_pointer else {}
+	update_xr_feedback(hand, right, left)
+	if office_windows and wrist_controls and not wrist_controls.is_capturing():
+		var rows: Array = []
+		for id: String in office_windows.surfaces:
+			if office_windows.surfaces[id].is_open(): rows.append(office_windows.sources[id])
+		wrist_controls.set_open_windows(rows)
 	if control_tips:
 		var aimed_window: bool = office_windows != null and not str(office_windows.pointed_id).is_empty()
 		control_tips.update_context(bool(hand.get("valid", false)), right.get_is_active(), wrist_controls != null and wrist_controls.dial.is_open(), aimed_window, delta)
@@ -1606,7 +1625,9 @@ func update_xr_interaction(delta: float) -> void:
 		xr_desk_was_down = left.is_button_pressed("ax_button")
 		return
 	var menu := right.is_button_pressed("ax_button")
-	if menu and not xr_view_button_was_down: show_workbench(true)
+	if menu and not xr_view_button_was_down:
+		show_workbench(true)
+		if desktop_surface: desktop_surface.send_command("focus_desktop", {})
 	xr_view_button_was_down = menu
 	var close := right.is_button_pressed("by_button")
 	if close and not xr_close_was_down:
@@ -1649,6 +1670,37 @@ func update_xr_interaction(delta: float) -> void:
 
 func active_desktop():
 	return office_windows.active() if office_windows else desktop_surface
+
+func update_xr_feedback(hand: Dictionary, right: XRController3D, left: XRController3D) -> void:
+	if not xr_feedback: return
+	var left_hand: Dictionary = left_hand_pointer.sample(xr_origin) if left_hand_pointer else {}
+	var hands := [left_hand, hand]
+	for side in 2:
+		var device: XRController3D = controller_grips[side] if controller_grips.size() == 2 else controllers[side]
+		xr_feedback.tracked_body(side, hands[side], device.get_is_active(), device.global_transform)
+	var hand_valid := bool(hand.get("valid", false))
+	var origin: Vector3 = hand["origin"] if hand_valid else right.global_position
+	var direction: Vector3 = hand["direction"] if hand_valid else -right.global_basis.z
+	var distance := INF
+	var title := ""
+	if office_windows:
+		for surface: Node3D in office_windows.surfaces.values():
+			if not surface.is_open() or not surface.get_spatial_visible(): continue
+			var hit: float = surface.ray_distance(origin, direction)
+			if hit < distance:
+				distance = hit
+				title = surface.window_title
+	if fabricator:
+		fabricator.ray_limit = minf(distance, 4.0)
+		var item: Node3D = fabricator.pick(origin, direction)
+		if item:
+			var bounds: AABB = item.global_transform * hologram.model_bounds(item)
+			var hit: Variant = bounds.grow(0.035).intersects_ray(origin, direction.normalized())
+			if hit is Vector3:
+				distance = origin.distance_to(hit)
+				title = "Grip to pick up"
+	var pressed := bool(hand.get("pinching", false)) if hand_valid else right.get_float("trigger") > 0.72 or right.get_float("grip") > 0.7
+	xr_feedback.aim(hand_valid or right.get_is_active(), origin, direction, distance, title, pressed, wrist_controls != null and wrist_controls.is_capturing())
 
 var desktop_grip_was_down := false
 

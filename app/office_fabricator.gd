@@ -148,6 +148,16 @@ func present_output(row: Dictionary) -> bool:
 func next_output() -> bool:
 	var ready: Array = jobs.filter(func(row: Dictionary) -> bool: return row.get("phase") == "ready")
 	if ready.is_empty():
+		if is_instance_valid(podium.projection) and podium.projection.has_meta("scene_primitive"):
+			note = "Object is ready on the podium"
+			paint()
+			return true
+		var primitives: Array = objects.keys().filter(func(id: String) -> bool: return is_instance_valid(objects[id]) and objects[id].has_meta("scene_primitive"))
+		if not primitives.is_empty():
+			output_index = posmod(output_index + 1, primitives.size())
+			last_picked = primitives[output_index]
+			return_held()
+			return true
 		note = "No completed objects yet"
 		paint()
 		return false
@@ -282,6 +292,21 @@ func return_held() -> void:
 	var id := str(held.get_meta("fabricated_id")) if held else last_picked
 	if id.is_empty() and not objects.is_empty(): id = str(objects.keys().back())
 	if held: end_grab()
+	if objects.has(id) and is_instance_valid(objects[id]) and objects[id].has_meta("scene_primitive"):
+		var item: Node3D = objects[id]
+		var label: String = item.get_meta("scene_label", "Object")
+		remove_child(item)
+		item.transform = Transform3D.IDENTITY
+		if podium.present_model(item, label):
+			item.transform = Transform3D.IDENTITY
+			podium.projection.set_meta("fabricated_id", id)
+			podium.projection.set_meta("scene_primitive", true)
+			podium.projection.set_meta("scene_label", label)
+			objects.erase(id)
+			placements.erase(id)
+			note = label + " returned to the podium"
+			paint()
+		return
 	for row: Dictionary in jobs:
 		if str(row.id) == id: present_output(row)
 

@@ -72,6 +72,19 @@ func sample_tracker(tracker: XRHandTracker, origin_transform: Transform3D, refer
 	elif separation <= PINCH_CLOSE_METERS:
 		_pinching = true
 	var result := {"valid": true, "origin": ray_origin, "direction": ray_direction.normalized(), "pinching": _pinching}
+	var edges: Array = []
+	var chains: Array = FINGER_JOINTS.duplicate(true)
+	for chain: Array in chains: chain.push_front(int(chain[0]) - 1)
+	chains.append([XRHandTracker.HAND_JOINT_THUMB_METACARPAL, XRHandTracker.HAND_JOINT_THUMB_PHALANX_PROXIMAL, XRHandTracker.HAND_JOINT_THUMB_PHALANX_DISTAL, XRHandTracker.HAND_JOINT_THUMB_TIP])
+	for chain: Array in chains:
+		var previous: int = wrist_joint
+		for joint: int in chain:
+			if _position_tracked(tracker, previous) and _position_tracked(tracker, joint):
+				var a := tracking_to_world * (tracker.get_hand_joint_transform(previous).origin * world_scale)
+				var b := tracking_to_world * (tracker.get_hand_joint_transform(joint).origin * world_scale)
+				if a.is_finite() and b.is_finite(): edges.append([a, b])
+			previous = joint
+	result["bones"] = edges
 	result.merge(_gesture_sample(tracker, tracking_to_world, world_scale))
 	return result
 
