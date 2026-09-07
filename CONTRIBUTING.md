@@ -26,6 +26,8 @@ Use descriptive names and bounded interfaces. Keep GPU operations, network calls
 
 Every new asset needs source/provenance, permission to redistribute raw source, size/geometry budget and a manifest entry. A purchase receipt alone is not permission to publish source assets. Do not add model weights, paid Fab/Unreal content or scraped images. Retain upstream licenses. To update an asset, regenerate its entry in `assets-manifest.json` and inspect the result visually.
 
+Credit people, not only repository names: update `CREDITS.md` with the creator's public name/handle, actual contribution and upstream link. Record asset creators and roles in the manifest, including for CC0 assets. Keep inherited author notices and distinguish your modifications from their work. Do not infer an artist from a Git committer or assign co-authorship to someone who did not author the commit.
+
 Dependency updates change the input spec and regenerate the corresponding hash lock with `uv pip compile --python-version 3.12 --generate-hashes ...`. Run dependency audits and relevant acceptance. Pin GitHub Actions to full commits. Do not use `pull_request_target` to execute PR code or provide secrets to forks.
 
 By submitting, you confirm you have the right to contribute the work under this project's MIT license, with any third-party exceptions clearly identified. No CLA or transfer of copyright is required. Follow [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).

@@ -327,19 +327,64 @@
     "sha256": "ff811f97ab46f1148f2753451fd9d64abf0ab9101e85922ed9f45fc3595a3cf2",
     "bytes": 2894186,
     "license": "CC0-1.0",
-    "origin": "https://polyhaven.com/a/dark_wood"
+    "origin": "https://polyhaven.com/a/dark_wood",
+    "creators": [
+      {
+        "name": "Dario Barresi",
+        "role": "Baking"
+      },
+      {
+        "name": "Dimitrios Savva",
+        "role": "Photography"
+      },
+      {
+        "name": "Rico Cilliers",
+        "role": "Tiling"
+      }
+    ],
+    "attribution_source": "https://polyhaven.com/a/dark_wood"
   },
   "app/assets/pbr/dark_wood_nor_gl_2k.jpg": {
     "sha256": "624c7262c726cbc7da8ad02941dc6c95dec104fdc20e2804560ea112814b1d5d",
     "bytes": 1603278,
     "license": "CC0-1.0",
-    "origin": "https://polyhaven.com/a/dark_wood"
+    "origin": "https://polyhaven.com/a/dark_wood",
+    "creators": [
+      {
+        "name": "Dario Barresi",
+        "role": "Baking"
+      },
+      {
+        "name": "Dimitrios Savva",
+        "role": "Photography"
+      },
+      {
+        "name": "Rico Cilliers",
+        "role": "Tiling"
+      }
+    ],
+    "attribution_source": "https://polyhaven.com/a/dark_wood"
   },
   "app/assets/pbr/dark_wood_rough_2k.jpg": {
     "sha256": "09eb42a24aeadcd5dd04d19f89d8df4116fd9cdbd405d0dab17e263b54ece133",
     "bytes": 2325418,
     "license": "CC0-1.0",
-    "origin": "https://polyhaven.com/a/dark_wood"
+    "origin": "https://polyhaven.com/a/dark_wood",
+    "creators": [
+      {
+        "name": "Dario Barresi",
+        "role": "Baking"
+      },
+      {
+        "name": "Dimitrios Savva",
+        "role": "Photography"
+      },
+      {
+        "name": "Rico Cilliers",
+        "role": "Tiling"
+      }
+    ],
+    "attribution_source": "https://polyhaven.com/a/dark_wood"
   },
   "app/assets/pbr/highland-loch-painting.png": {
     "sha256": "e003b6a6fd96628507cc896d984517f586460238746e07c5295b6bd01740350d",
@@ -351,13 +396,27 @@
     "sha256": "0ca5245ba70777d3e41ff4566c9f8d363855461891802c55cb7dc0f6f85f084e",
     "bytes": 2568315,
     "license": "CC0-1.0",
-    "origin": "https://polyhaven.com/a/white_plaster_02"
+    "origin": "https://polyhaven.com/a/white_plaster_02",
+    "creators": [
+      {
+        "name": "Rob Tuytel",
+        "role": "Texture author"
+      }
+    ],
+    "attribution_source": "https://polyhaven.com/a/white_plaster_02"
   },
   "app/assets/pbr/white_plaster_02_nor_gl_2k.jpg": {
     "sha256": "083579b03a8f31ec1886512e5972f3b893610bf26a2098f97910e0f46745cdc9",
     "bytes": 3379814,
     "license": "CC0-1.0",
-    "origin": "https://polyhaven.com/a/white_plaster_02"
+    "origin": "https://polyhaven.com/a/white_plaster_02",
+    "creators": [
+      {
+        "name": "Rob Tuytel",
+        "role": "Texture author"
+      }
+    ],
+    "attribution_source": "https://polyhaven.com/a/white_plaster_02"
   },
   "app/assets/whiskey-room.glb": {
     "sha256": "904d6b3c4568cae07d34abd4de2ac3a2467b41f369d839b915cb581a28dd14e6",

@@ -2,6 +2,8 @@
 
 The root MIT license covers first-party work only. Preserve these independent notices and terms when redistributing:
 
+**[CREDITS.md](CREDITS.md) names the people behind these projects and assets, with their roles and original project links.** These notices supplement that acknowledgement; attribution must remain visible when adapting or redistributing the work.
+
 | Component | Origin and license | Distribution |
 | --- | --- | --- |
 | Original Hermes3D reference/legacy room code | Luke The Dev, MIT; [retained notice](app/HERMES3D-LICENSE.txt) | Notice retained for inherited parts; current procedural room is original |
