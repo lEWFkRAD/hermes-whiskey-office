@@ -1,10 +1,12 @@
-# Hermes · The Whiskey Room
+# Hermes Â· The Whiskey Room
 
 [![CI](https://github.com/lEWFkRAD/hermes-whiskey-office/actions/workflows/ci.yml/badge.svg)](https://github.com/lEWFkRAD/hermes-whiskey-office/actions/workflows/ci.yml)
 
 A warm, furnished spatial workspace for working alongside Hermes. Built with Godot and OpenXR for **Meta Quest 3 through Linux PCVR**, with a desktop preview for development. The room presents the actual Hermes Desktop, HUD and TUI, preserving their conversations, tools, permissions and voice interfaces.
 
 An independent community project built around [Nous Research's Hermes](https://github.com/NousResearch/hermes-agent). This repository does not imply official sponsorship or endorsement.
+
+**Credit to the people who made this possible:** the Hermes team and contributors; **Luke The Dev** (Hermes3D); **Siddharth Ahuja** (Camera to Blender); **Piotr Wilkin** (trellis.cpp/GGUF); **Adolanium** (Hermes SSH); the **TRELLIS.2 researchers**; and texture artists **Dario Barresi, Dimitrios Savva, Rico Cilliers and Rob Tuytel**. [Full credits, their contributions and original projects â†’](CREDITS.md)
 
 ## What is here
 

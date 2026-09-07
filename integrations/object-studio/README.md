@@ -1,5 +1,7 @@
 # Object Studio integration
 
+**Original creator: [Siddharth Ahuja (ahujasid)](https://github.com/ahujasid)**, author of Camera to Blender and its Blender add-on. The optional native renderer and GGUF conversion are by **[Piotr Wilkin (pwilkin / ilintar)](https://github.com/pwilkin)**, building on the TRELLIS.2 researchers' work. [Full credits and contribution boundaries](../../CREDITS.md).
+
 This is the source of the adapted [Camera to Blender](https://github.com/ahujasid/camera-to-blender) local server, durable job store, streamed checkpoint worker, web UI and Blender add-on used by the office podium. Upstream baseline: `3de881fb3aa5a7a2bfd243e34ba4190c88c803de`; preserve [its MIT notice](LICENSE). Local adaptations supply persistent jobs, explicit Fast/Detailed presets, SSH generation, recovery and import acknowledgements.
 
 ## Install

@@ -2,6 +2,8 @@
 
 `assets-manifest.json` lists every shipped GLB/PNG/JPEG with hash, size, origin category and license. CI rejects missing, changed or unlisted assets. Runtime assets are committed directly so a clean clone opens the room.
 
+**Artist credits:** Dark Wood was photographed by **Dimitrios Savva**, tiled by **Rico Cilliers**, and baked by **Dario Barresi**; White Plaster 02 is by **Rob Tuytel**. These credits are verified against the linked Poly Haven asset pages below and recorded in the per-file manifest. See [CREDITS.md](../CREDITS.md) for the people behind the generation tools and original spatial work.
+
 - `app/assets/whiskey-room.glb`, room libraries and decorations are original procedural work from `build_room.py`, `build_decorations.py` and `modeling/`. These sources preserve semantic components while batching runtime geometry. Use Blender's Python/bpy 5.0.1 for the original authoring baseline; runtime does not require Blender.
 - `app/assets/pbr/dark_wood_*` and `white_plaster_02_*` come from [Poly Haven dark wood](https://polyhaven.com/a/dark_wood) and [white plaster 02](https://polyhaven.com/a/white_plaster_02), under [CC0](https://polyhaven.com/license). Their asset license is distinct from this project's MIT code license.
 - `highland-loch-painting.png` is an original generated landscape.
