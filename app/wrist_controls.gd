@@ -92,8 +92,18 @@ const PAGES := {
 		["passthrough", "Passthrough", "Show your room\nwhen supported"],
 		["camera_unavailable", "Scan page", "Quest camera component\nnot installed", false],
 		["voice_stop", "End voice", "End the current voice conversation"],
-		["nav_artifacts", "Documents", "Open Hermes artifacts"],
+		["page_help", "Help", "Hand and controller tips\nReplay or turn off"],
 		["page_home", "Back", "Main tool wheel"]
+	],
+	"help": [
+		["tutorial_hands", "Hand menu", "Learn the two-finger gesture"],
+		["tutorial_hand_menu", "Twist & pinch", "Choose and confirm"],
+		["tutorial_hand_windows", "Windows", "Point, move and resize"],
+		["tutorial_controllers", "Controllers", "Movement and button shortcuts"],
+		["tutorial_voice", "Voice", "Drafts and conversations"],
+		["tutorial_off", "Tips off", "Keep the room quiet"],
+		["tutorial_on", "Replay tips", "Show contextual tips again"],
+		["page_senses", "Back", "Senses controls"]
 	],
 	"room": [
 		["view_desk", "Desk", "Your shared workspace"],

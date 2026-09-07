@@ -1,0 +1,60 @@
+extends SceneTree
+const Tutorial = preload("res://office_tutorial.gd")
+var failures: Array[String] = []
+var checks := 0
+
+func check(ok: bool, message: String) -> void:
+	checks += 1
+	if not ok: failures.append(message)
+
+func _initialize() -> void:
+	run.call_deferred()
+
+func run() -> void:
+	var head := Node3D.new()
+	root.add_child(head)
+	var tip := Tutorial.new()
+	root.add_child(tip)
+	var path := OS.get_user_data_dir().path_join("tutorial-test-" + str(OS.get_process_id()))
+	tip.setup(head, path, false)
+	for _i in 50: tip.update_context(false, false, false, false, 0.1)
+	check(tip.current.is_empty() and tip.seen.is_empty(), "Untracked headset must not show or consume a tip")
+	for _i in 40: tip.update_context(true, false, false, false, 0.1)
+	check(tip.current == "hands", "Stable tracked hands show the invocation lesson")
+	var pose: Transform3D = tip.global_transform
+	head.position = Vector3(3, 2, 1)
+	tip.update_context(true, false, false, false, 0.1)
+	check(tip.global_transform == pose, "Expanded teaching card must stay in world space")
+	tip.update_context(true, false, true, false, 0.1)
+	check(tip.current == "hand_menu", "Opening the menu immediately teaches selection")
+	check(tip.dismiss() and not tip.dismiss(), "Only a visible tip consumes a B dismissal")
+	tip.set_tips_enabled(false)
+	for _i in 200: tip.update_context(true, false, true, false, 0.1)
+	check(tip.current.is_empty(), "Disabled tips stay quiet")
+	tip.request_tip("hand_windows")
+	tip.update_context(true, false, true, true, 0.1)
+	check(tip.current.is_empty(), "Help waits for the wheel to close")
+	tip.update_context(true, false, false, true, 0.1)
+	check(tip.current == "hand_windows" and not tip.enabled, "Manual replay works without re-enabling automatic tips")
+	for _i in 125: tip.update_context(true, false, false, true, 0.1)
+	check(tip.current.is_empty(), "Cards expire without requiring an action")
+	var restored := Tutorial.new()
+	root.add_child(restored)
+	restored.setup(head, path, false)
+	check(not restored.enabled and restored.seen.has("hand_windows"), "Preferences survive restart")
+	restored.request_tip("untrusted_unknown_topic")
+	check(restored.pending.is_empty(), "Unknown tip identifiers cannot create content")
+	restored.set_tips_enabled(true)
+	check(restored.seen.is_empty(), "Replay clears the learned-tip set")
+	for _i in 30: restored.update_context(false, true, false, false, 0.1)
+	check(restored.current == "controllers", "Controllers receive matching shortcuts")
+	var scene_settings := ConfigFile.new()
+	scene_settings.load("res://project.godot")
+	check(scene_settings.get_value("xr", "shaders/enabled", false) == true, "Stereo shader variants must be enabled")
+	DirAccess.remove_absolute(path.path_join("control-tips.json"))
+	DirAccess.remove_absolute(path)
+	tip.free()
+	restored.free()
+	head.free()
+	print("HERMES_TUTORIAL_TESTS " + JSON.stringify({"checks": checks, "failures": failures}))
+	quit(0 if failures.is_empty() else 1)

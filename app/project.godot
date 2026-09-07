@@ -27,6 +27,7 @@ environment/ssil/quality=2
 environment/defaults/default_clear_color=Color(0.06, 0.045, 0.035, 1)
 
 [xr]
+shaders/enabled=true
 openxr/enabled=true
 openxr/extensions/hand_tracking=true
 openxr/extensions/hand_interaction_profile=true
