@@ -28,6 +28,7 @@ var xr_origin: XROrigin3D
 var xr_active := false
 var controllers: Array[XRController3D] = []
 var trigger_was_down := false
+var trigger_voice = preload("res://trigger_voice.gd").new()
 var xr_snap_armed := true
 var xr_view_button_was_down := false
 var xr_desk_view := false
@@ -1575,12 +1576,38 @@ func apply_xr_locomotion(stick: Vector2, turn_stick: Vector2, delta: float, sele
 		var angle := -signf(snap_axis) * deg_to_rad(30.0)
 		xr_origin.global_transform = snap_turn_transform(xr_origin.global_transform, xr_camera.global_position, angle)
 
+func update_trigger_dictation(hand: Dictionary, right: XRController3D, left: XRController3D) -> bool:
+	# Resolve this frame's actual ray, not last frame's hovered-window cache.
+	var aimed := false
+	var origin := right.global_position
+	var direction := -right.global_basis.z
+	if office_windows:
+		aimed = not office_windows.target_at(origin, direction).is_empty()
+	elif desktop_surface:
+		aimed = desktop_surface.get_spatial_visible() and is_finite(desktop_surface.ray_distance(origin, direction))
+	var menu_active: bool = wrist_controls != null and wrist_controls.is_capturing()
+	menu_active = menu_active or left.is_button_pressed("by_button") or left.is_button_pressed("ax_button")
+	var gripping: bool = desktop_grab or right.get_float("grip") > 0.7 or (fabricator != null and fabricator.held != null)
+	var available: bool = desktop_surface != null and desktop_surface.connected and right.get_is_active() and not bool(hand.get("valid", false))
+	var cancel := right.is_button_pressed("by_button") or right.is_button_pressed("ax_button")
+	var gesture: Dictionary = trigger_voice.update(right.get_float("trigger"), available, aimed, menu_active, gripping, cancel)
+	if gesture.start:
+		if office_windows: office_windows.release_all()
+		request_voice_turn() # Existing native Dictate path; never synthesizes Send.
+		if control_tips: control_tips.request_tip("trigger_voice")
+	if gesture.consumed:
+		trigger_was_down = right.get_float("trigger") > 0.72
+	return gesture.consumed
+
 func update_xr_interaction(delta: float) -> void:
-	if not xr_active or controllers.size() < 2: return
+	if not xr_active or controllers.size() < 2:
+		trigger_voice.update(0.0, false, false, false, false, false)
+		return
 	var right := controllers[1]
 	var left := controllers[0]
 	var hand: Dictionary = hand_pointer.sample(xr_origin) if hand_pointer else {}
 	update_xr_feedback(hand, right, left)
+	if update_trigger_dictation(hand, right, left): return
 	if office_windows and wrist_controls and not wrist_controls.is_capturing():
 		var rows: Array = []
 		for id: String in office_windows.surfaces:

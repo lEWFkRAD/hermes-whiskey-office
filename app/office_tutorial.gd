@@ -1,6 +1,7 @@
 extends Node3D
 ## Local, nonmodal coaching. Never sends actions, captures input, or follows the head.
 const TIPS := {
+	"trigger_voice": ["Squeeze to dictate", "Aim away from windows and squeeze right trigger.\nHermes records a draft. Stop with End voice.\nReview your words, then use Send for a reply."],
 	"hands": ["Open your hand menu", "Raise your right hand. Extend index and middle\nfingers; curl ring and little fingers.\nHold briefly to open the glowing rings."],
 	"hand_menu": ["Twist, pinch, release", "Gently twist your wrist to choose a function.\nPinch thumb and index, hold briefly, then release.\nLower and relax your hand to close the menu."],
 	"hand_windows": ["Point to work", "Point and pinch to select a window control.\nAim at a window and pinch with both hands\nto move it; spread your hands to resize."],
