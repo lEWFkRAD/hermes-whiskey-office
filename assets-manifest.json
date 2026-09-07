@@ -459,5 +459,47 @@
     "bytes": 2096318,
     "license": "MIT",
     "origin": "Original generated image / Trellis conversion / Blender reconstruction; docs/ASSETS.md"
+  },
+  "docs/screenshots/01-whiskey-room.png": {
+    "sha256": "3e3232eb8252273d9ecf5801728e24ad1a9bf240c4b434e5ab4b7a1526a094de",
+    "bytes": 3911477,
+    "license": "MIT AND CC0-1.0",
+    "origin": "Unedited native Godot screenshot of the public application; capture_gallery.gd; named source credits in CREDITS.md and docs/SCREENSHOTS.md"
+  },
+  "docs/screenshots/02-hermes-at-the-desk.png": {
+    "sha256": "d3fa2524013b79f9df31c564fa73634d6e7ba0d659a6309339fe30565297facc",
+    "bytes": 3768340,
+    "license": "MIT AND CC0-1.0",
+    "origin": "Unedited native Godot screenshot of the public application; capture_gallery.gd; named source credits in CREDITS.md and docs/SCREENSHOTS.md"
+  },
+  "docs/screenshots/03-listening-corner.png": {
+    "sha256": "606bff3fb1bdc2bdf21c2b533b1e545531d682de5dea9b7f04607aecb8c4bff8",
+    "bytes": 3591983,
+    "license": "MIT AND CC0-1.0",
+    "origin": "Unedited native Godot screenshot of the public application; capture_gallery.gd; named source credits in CREDITS.md and docs/SCREENSHOTS.md"
+  },
+  "docs/screenshots/04-vinyl-and-valves.png": {
+    "sha256": "77e5128d12006e4f6b3f02f60a6c4c125dcfc06c2d5b5871ae58f85f0944254b",
+    "bytes": 4247477,
+    "license": "MIT AND CC0-1.0",
+    "origin": "Unedited native Godot screenshot of the public application; capture_gallery.gd; named source credits in CREDITS.md and docs/SCREENSHOTS.md"
+  },
+  "docs/screenshots/05-planted-lounge.png": {
+    "sha256": "98aa93f42f1b745d39b7c7ee46be079ed841203b6f26960d7141204bc17c57c8",
+    "bytes": 3941209,
+    "license": "MIT AND CC0-1.0",
+    "origin": "Unedited native Godot screenshot of the public application; capture_gallery.gd; named source credits in CREDITS.md and docs/SCREENSHOTS.md"
+  },
+  "docs/screenshots/06-hologram-podium.png": {
+    "sha256": "3f9b4a2802730c120dceeb646079929b6a3d5596bf3347ecf1f8f4fdb2f58e05",
+    "bytes": 3944011,
+    "license": "MIT AND CC0-1.0",
+    "origin": "Unedited native Godot screenshot of the public application; capture_gallery.gd; named source credits in CREDITS.md and docs/SCREENSHOTS.md"
+  },
+  "docs/screenshots/07-wrist-interface.png": {
+    "sha256": "db0067e8cb9c972789ccb4b0b8ee1b56232488b7bc2465d933cd27ba10e9298d",
+    "bytes": 3813747,
+    "license": "MIT AND CC0-1.0",
+    "origin": "Unedited native Godot screenshot of the public application; capture_gallery.gd; named source credits in CREDITS.md and docs/SCREENSHOTS.md"
   }
 }

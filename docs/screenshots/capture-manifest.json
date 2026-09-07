@@ -1,0 +1,149 @@
+{
+  "microphone_or_camera_capture": false,
+  "model_calls": 0,
+  "presentation": "Native application scene, hidden desktop overlays, isolated empty workspace; no image editing",
+  "schema": 1,
+  "screenshots": [
+    {
+      "camera_position_m": [
+        3.15000009536743,
+        1.85000002384186,
+        4.69999980926514
+      ],
+      "camera_target_m": [
+        -0.349999994039536,
+        1.25,
+        -1.79999995231628
+      ],
+      "file": "01-whiskey-room.png",
+      "headset_capture": false,
+      "height": 1440,
+      "native_capture": true,
+      "post_processing": "none",
+      "renderer": "forward_plus",
+      "vertical_fov_degrees": 62.0,
+      "width": 2560
+    },
+    {
+      "camera_position_m": [
+        2.15000009536743,
+        1.64999997615814,
+        1.54999995231628
+      ],
+      "camera_target_m": [
+        1.35000002384186,
+        1.04999995231628,
+        -1.85000002384186
+      ],
+      "file": "02-hermes-at-the-desk.png",
+      "headset_capture": false,
+      "height": 1440,
+      "native_capture": true,
+      "post_processing": "none",
+      "renderer": "forward_plus",
+      "vertical_fov_degrees": 46.0,
+      "width": 2560
+    },
+    {
+      "camera_position_m": [
+        -1.85000002384186,
+        1.5,
+        -0.850000023841858
+      ],
+      "camera_target_m": [
+        -4.09999990463257,
+        0.949999988079071,
+        -3.0
+      ],
+      "file": "03-listening-corner.png",
+      "headset_capture": false,
+      "height": 1440,
+      "native_capture": true,
+      "post_processing": "none",
+      "renderer": "forward_plus",
+      "vertical_fov_degrees": 51.0,
+      "width": 2560
+    },
+    {
+      "camera_position_m": [
+        2.54999995231628,
+        1.64999997615814,
+        2.54999995231628
+      ],
+      "camera_target_m": [
+        4.30000019073486,
+        0.939999997615814,
+        1.70000004768372
+      ],
+      "file": "04-vinyl-and-valves.png",
+      "headset_capture": false,
+      "height": 1440,
+      "native_capture": true,
+      "post_processing": "none",
+      "renderer": "forward_plus",
+      "vertical_fov_degrees": 49.0,
+      "width": 2560
+    },
+    {
+      "camera_position_m": [
+        1.6599999666214,
+        1.64999997615814,
+        5.11999988555908
+      ],
+      "camera_target_m": [
+        -2.40000009536743,
+        0.959999978542328,
+        2.15000009536743
+      ],
+      "file": "05-planted-lounge.png",
+      "headset_capture": false,
+      "height": 1440,
+      "native_capture": true,
+      "post_processing": "none",
+      "renderer": "forward_plus",
+      "vertical_fov_degrees": 59.0,
+      "width": 2560
+    },
+    {
+      "camera_position_m": [
+        1.89999997615814,
+        1.85000002384186,
+        1.54999995231628
+      ],
+      "camera_target_m": [
+        -0.25,
+        1.02999997138977,
+        -0.349999994039536
+      ],
+      "file": "06-hologram-podium.png",
+      "headset_capture": false,
+      "height": 1440,
+      "native_capture": true,
+      "post_processing": "none",
+      "renderer": "forward_plus",
+      "vertical_fov_degrees": 56.0,
+      "width": 2560
+    },
+    {
+      "camera_position_m": [
+        2.79999995231628,
+        1.67999994754791,
+        3.40000009536743
+      ],
+      "camera_target_m": [
+        -0.100000001490116,
+        1.22000002861023,
+        -2.25
+      ],
+      "file": "07-wrist-interface.png",
+      "headset_capture": false,
+      "height": 1440,
+      "interaction_fixture": "Built-in simulated wrist pose; not physical hand-tracking acceptance",
+      "native_capture": true,
+      "post_processing": "none",
+      "renderer": "forward_plus",
+      "vertical_fov_degrees": 62.0,
+      "width": 2560
+    }
+  ]
+}
