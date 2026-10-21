@@ -29,15 +29,22 @@ def prefer_headset_audio(env):
 def stop_owned(process):
     if process.poll() is not None:
         return
-    if os.name == 'posix':
-        os.killpg(process.pid, signal.SIGTERM)
-    else:
-        process.terminate()
+    try:
+        if os.name == 'posix':
+            os.killpg(process.pid, signal.SIGTERM)
+        else:
+            process.terminate()
+    except ProcessLookupError:
+        # The child can exit between poll() and signaling. Still reap it.
+        pass
     try:
         process.wait(timeout=5)
     except subprocess.TimeoutExpired:
         if os.name == 'posix':
-            os.killpg(process.pid, signal.SIGKILL)
+            try:
+                os.killpg(process.pid, signal.SIGKILL)
+            except ProcessLookupError:
+                pass
         else:
             subprocess.run(['taskkill', '/PID', str(process.pid), '/T', '/F'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         process.wait(timeout=5)
