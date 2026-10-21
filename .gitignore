@@ -38,3 +38,7 @@ artifacts/
 .tools/
 private-fixture-*/
 control-tips.json
+
+.scene-commands/
+
+.scene-results/

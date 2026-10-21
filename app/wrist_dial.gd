@@ -1,6 +1,6 @@
 extends RefCounted
 ## Pure wrist-menu state: no nodes, input injection, permissions, or UI actions.
-## Configure exactly eight unique nonempty string IDs with set_slots(ids).
+## Configure two to eight unique nonempty string IDs with set_slots(ids).
 ## update accepts {valid, menu_pose, pinching, wrist_basis: Basis, cancel?: bool}.
 ## Hold the two-finger menu pose with an open pinch for 0.35 seconds to open.
 ## XRHandTracker uses Godot humanoid axes: +Y toward fingertips, -Y toward
@@ -26,7 +26,8 @@ const PINCH_SECONDS := 0.18
 const POSE_DROP_SECONDS := 1.5
 const TIMEOUT_SECONDS := 12.0
 const ROLL_GAIN := 2.5
-const SECTOR_DEGREES := 45.0
+func sector_degrees() -> float:
+	return 360.0 / maxf(_slots.size(), 1)
 const HYSTERESIS_DEGREES := 7.0
 const MAX_DELTA := 0.1
 
@@ -52,7 +53,7 @@ var _stick_roll_origin := 0.0
 func set_slots(ids: Array) -> bool:
 	cancel()
 	_slots.clear()
-	if ids.size() != SLOT_COUNT:
+	if ids.size() < 2 or ids.size() > SLOT_COUNT:
 		return false
 	var next: Array[String] = []
 	for value: Variant in ids:
@@ -76,7 +77,7 @@ func open_at(basis: Basis) -> Dictionary:
 	var was_open := _open or _pending_closed
 	_close()
 	_pending_closed = false
-	if _slots.size() != SLOT_COUNT or not _basis_valid(basis):
+	if _slots.size() < 2 or not _basis_valid(basis):
 		return _result(false, was_open)
 	_begin(basis.orthonormalized())
 	_ready = false
@@ -124,7 +125,7 @@ func _result(just_opened: bool, just_closed: bool, activated_id: String = "") ->
 		"activated_id": activated_id,
 		"progress": progress,
 		"roll_degrees": _roll,
-		"dialangle_degrees": float(_selected_index) * 45.0 if _stick_selection else fposmod(_roll * ROLL_GAIN, 360.0),
+		"dialangle_degrees": float(_selected_index) * sector_degrees() if _stick_selection else fposmod(_roll * ROLL_GAIN, 360.0),
 	}
 
 func _basis_valid(value: Variant) -> bool:
@@ -146,9 +147,9 @@ func _update_roll(basis: Basis) -> bool:
 
 func _update_selection() -> void:
 	var angle := _roll * ROLL_GAIN
-	var distance := wrapf(angle - float(_selected_index) * SECTOR_DEGREES, -180.0, 180.0)
-	if absf(distance) > SECTOR_DEGREES * 0.5 + HYSTERESIS_DEGREES:
-		_selected_index = int(floor((fposmod(angle, 360.0) + SECTOR_DEGREES * 0.5) / SECTOR_DEGREES)) % SLOT_COUNT
+	var distance := wrapf(angle - float(_selected_index) * sector_degrees(), -180.0, 180.0)
+	if absf(distance) > sector_degrees() * 0.5 + HYSTERESIS_DEGREES:
+		_selected_index = int(floor((fposmod(angle, 360.0) + sector_degrees() * 0.5) / sector_degrees())) % _slots.size()
 
 func update(sample: Dictionary, delta: float) -> Dictionary:
 	var just_closed := _pending_closed
@@ -160,7 +161,7 @@ func update(sample: Dictionary, delta: float) -> Dictionary:
 	var valid: bool = typeof(sample.get("valid")) == TYPE_BOOL and sample.get("valid") == true
 	valid = valid and typeof(sample.get("menu_pose")) == TYPE_BOOL and typeof(sample.get("pinching")) == TYPE_BOOL
 	valid = valid and _basis_valid(sample.get("wrist_basis")) and is_finite(delta) and delta >= 0.0
-	if not valid or _slots.size() != SLOT_COUNT:
+	if not valid or _slots.size() < 2:
 		just_closed = just_closed or _open
 		_close()
 		return _result(false, just_closed)
@@ -218,9 +219,9 @@ func update(sample: Dictionary, delta: float) -> Dictionary:
 		var axis: Variant = sample.get("selection_axis", Vector2.ZERO)
 		if axis is Vector2 and axis.is_finite() and axis.length() > 0.55:
 			var angle := rad_to_deg(atan2(axis.x, axis.y))
-			var distance := wrapf(angle - float(_selected_index) * 45.0, -180.0, 180.0)
-			if absf(distance) > 22.5 + HYSTERESIS_DEGREES:
-				_selected_index = posmod(int(round(angle / 45.0)), SLOT_COUNT)
+			var distance := wrapf(angle - float(_selected_index) * sector_degrees(), -180.0, 180.0)
+			if absf(distance) > sector_degrees() * 0.5 + HYSTERESIS_DEGREES:
+				_selected_index = posmod(int(round(angle / sector_degrees())), _slots.size())
 			_stick_selection = true
 			_stick_roll_origin = _roll
 		elif _stick_selection and absf(_roll - _stick_roll_origin) > 8.0:

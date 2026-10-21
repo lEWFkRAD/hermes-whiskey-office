@@ -98,13 +98,19 @@ def main():
                     result['checks']['image_paste_acknowledged']=True
                     chord('Control_L','Shift_L','h')
                     capture('hud')
-                    chord('Control_L','Shift_L','h')
+                    command('focus_desktop')
+                    capture('hud-returned-desktop')
+                    result['checks']['hud_return_acknowledged']=True
                     command('launch_tui')
                     time.sleep(3)
                     capture('tui')
                     result['checks']['tui_launch_acknowledged']=True
                     command('focus_desktop')
                     capture('returned-desktop')
+                    command('launch_tui')
+                    capture('reopened-tui')
+                    result['checks']['existing_tui_refocus_acknowledged']=True
+                    command('focus_desktop')
                     result['navigation']={}
                     for destination in ['tools','skills','mcp','plugins','settings','artifacts','new_session','approvals']:
                         try:
