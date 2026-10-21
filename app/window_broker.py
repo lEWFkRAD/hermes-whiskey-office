@@ -124,7 +124,12 @@ class WindowBroker:
             except (OSError, ValueError):
                 pass
             finally:
-                path.unlink(missing_ok=True)
+                try:
+                    path.unlink(missing_ok=True)
+                except OSError:
+                    # Retry cleanup on the next poll. Accepted command IDs stay
+                    # in seen, so a locked file cannot launch the client again.
+                    pass
         for identifier, process in list(self.processes.items()):
             if process.poll() is not None:
                 self.rows[identifier].update(status='error', error='The remote display client stopped. Reopen to reconnect.')

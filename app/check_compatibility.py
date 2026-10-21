@@ -60,6 +60,7 @@ def main():
     checks = [execute('adapter_conformance', [sys.executable, '-m', 'unittest', 'test_office_bridge', 'test_voice_io'], marker='OK')]
     checks.append(execute('desktop_bridge_conformance', [sys.executable, '-W', 'error::ResourceWarning', '-m', 'unittest', 'test_desktop_bridge'], marker='OK'))
     checks.append(execute('window_broker_conformance', [sys.executable, '-m', 'unittest', 'test_window_broker'], marker='OK'))
+    checks.append(execute('launcher_shutdown_conformance', [sys.executable, '-m', 'unittest', 'test_office_launcher'], marker='OK'))
     checks.append(execute('loading_bay_conformance', [sys.executable, '-m', 'unittest', 'test_loading_bay'], marker='OK'))
     checks.append(execute('object_pipeline_conformance', [sys.executable, '-m', 'unittest', 'test_object_pipeline'], marker='OK'))
     checks.append(execute('test_office_windows.gd', [args.godot, '--headless', '--xr-mode', 'off', '--path', str(ROOT), '--script', 'res://test_office_windows.gd'], marker='HERMES_OFFICE_WINDOWS_TESTS'))

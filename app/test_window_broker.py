@@ -93,6 +93,25 @@ class BrokerTests(unittest.TestCase):
         self.assertFalse(self.broker.request(self.command()))
         self.assertEqual(len(self.broker.seen), 8192)
 
+    def test_command_cleanup_failure_does_not_stop_other_windows(self):
+        commands = self.root/'windows/commands'
+        blocked = commands/'a-blocked.json'
+        blocked.write_text(json.dumps(self.command()))
+        (commands/'b-good.json').write_text(json.dumps(self.command('host-1')))
+        unlink = Path.unlink
+        def fail_one(path, *args, **kwargs):
+            if path == blocked:
+                raise PermissionError('busy command file')
+            return unlink(path, *args, **kwargs)
+        with patch.object(Path, 'unlink', fail_one):
+            self.broker.poll()
+            self.broker.poll()
+        self.assertEqual(self.spawn.call_count, 2)
+        self.assertEqual(self.broker.rows['host-1']['status'], 'running')
+        self.broker.poll()
+        self.assertFalse(blocked.exists())
+        self.assertEqual(self.spawn.call_count, 2)
+
     def test_configuration_rejects_unsafe_identifiers_and_shell_strings(self):
         for changes in [dict(id='../host'), dict(id='hermes'), dict(id='loading-bay'), dict(command='execute anything'),
                         dict(command=['relative']), dict(machine='host\nother')]:
