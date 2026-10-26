@@ -1,4 +1,4 @@
-fastapi>=0.115,<1
+fastapi>=0.161.1,<1
 uvicorn>=0.52.4,<1
 websockets>=17.2,<18
 websocket-client>=1.8,<2
