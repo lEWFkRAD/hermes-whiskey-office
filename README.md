@@ -1,3 +1,10 @@
+<!-- project-home:start -->
+**[The Whiskey Room project homepage](https://lewfkrad.github.io/hermes-whiskey-office/)** · [Documentation](https://github.com/lEWFkRAD/hermes-whiskey-office/blob/main/docs/SETUP.md)
+
+A Godot and OpenXR workspace with familiar Hermes windows, a shared file tray, and room to think.
+
+<!-- project-home:end -->
+
 # Hermes · The Whiskey Room
 
 [![CI](https://github.com/lEWFkRAD/hermes-whiskey-office/actions/workflows/ci.yml/badge.svg)](https://github.com/lEWFkRAD/hermes-whiskey-office/actions/workflows/ci.yml)
