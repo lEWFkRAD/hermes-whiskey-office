@@ -1,7 +1,7 @@
 fastapi>=0.161.1,<1
 uvicorn>=0.54.0,<1
 websockets>=17.2,<18
-websocket-client>=1.8,<2
+websocket-client>=1.9.2,<2
 httpx>=0.28.1,<1
 python-dotenv>=1.2.4,<2
 python-multipart>=0.0.32,<1
