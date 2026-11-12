@@ -31,6 +31,24 @@ class FakeDesktop:
 
 
 class DesktopContractTests(unittest.TestCase):
+    def test_desktop_restores_app_before_mapping_its_hidden_window(self):
+        desktop = object.__new__(bridge.PrivateDesktop)
+        desktop.main_window = 123
+        desktop.generic = False
+        desktop.app = types.SimpleNamespace(pid=456)
+        desktop.environment = {'DISPLAY': ':private'}
+        desktop.display = MagicMock()
+        desktop.X = types.SimpleNamespace(Above=0)
+        desktop.fit = MagicMock()
+        desktop.focus = MagicMock()
+        with patch('hermes_navigation.navigate') as navigate:
+            desktop.focus_desktop()
+            navigate.assert_called_once_with('desktop', 456, environment=desktop.environment)
+        with patch('hermes_navigation.navigate', side_effect=ValueError('Ambiguous HUD')):
+            desktop.display.reset_mock()
+            with self.assertRaises(ValueError): desktop.focus_desktop()
+            desktop.display.create_resource_object.assert_not_called()
+
     def test_unchanged_frames_skip_encoding_but_recreate_missing_files(self):
         desktop = object.__new__(bridge.PrivateDesktop)
         desktop.display_name = ':test'

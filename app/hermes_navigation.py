@@ -46,7 +46,7 @@ from typing import Any, Mapping
 
 
 DESTINATIONS = frozenset({"tools", "skills", "mcp", "plugins", "artifacts",
-                          "approvals", "settings", "new_session", "voice", "dictate", "end_voice"})
+                          "approvals", "settings", "new_session", "voice", "dictate", "end_voice", "desktop"})
 HARD_TIMEOUT = 2.5
 WORK_TIMEOUT = 2.15
 MAX_NODES = 1600
@@ -268,6 +268,11 @@ def plan_action(destination: str, app_pid: int, snapshot: Snapshot,
         return Plan("guidance", message=APPROVAL_GUIDANCE)
     if blocked_by_dialog:
         raise HermesNavigationError("A Hermes dialog is open. Finish or dismiss it in Hermes before navigating.")
+    if destination == 'desktop':
+        exit_hud = _unique(_buttons(snapshot, 'Exit HUD mode'), 'Exit HUD mode', optional=True)
+        if exit_hud:
+            return Plan('click', exit_hud, 'desktop', 'Returned from Hermes HUD to Desktop.')
+        return Plan('guidance', message='Focused Hermes Desktop.')
     if close_settings and destination not in {"settings", "plugins"}:
         if "close_settings" in completed:
             return Plan("wait", message="Waiting for Hermes Settings to close.")

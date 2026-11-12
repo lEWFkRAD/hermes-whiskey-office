@@ -593,6 +593,12 @@ class PrivateDesktop:
 
     def launch_tui(self):
         if self.tui and self.tui.poll() is None:
+            # An already-running TUI must be raised again after Desktop/HUD.
+            for window in self.root.query_tree().children:
+                if window.get_attributes().map_state == self.X.IsViewable and window.get_wm_class() == ('gnome-terminal-server', 'Gnome-terminal'):
+                    window.configure(stack_mode=self.X.Above)
+                    self.focus(window)
+                    break
             return
         executable = Path(__file__).resolve().parent / 'run-hermes-tui.sh'
         if not executable.is_file() or not Path('/usr/bin/gnome-terminal').is_file():
@@ -605,6 +611,12 @@ class PrivateDesktop:
     def focus_desktop(self):
         if self.main_window is None:
             raise ValueError('The existing Hermes desktop window is unavailable')
+        if not self.generic:
+            # Raw XMapWindow can expose Electron's deliberately hidden main
+            # window as blank white while HUD is active. Ask the actual app to
+            # exit HUD first, preserving its draft and conversation.
+            from hermes_navigation import navigate
+            navigate('desktop', self.app.pid, environment=self.environment)
         window = self.display.create_resource_object('window', self.main_window)
         self.fit(window, main=True)
         window.map()

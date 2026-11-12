@@ -67,6 +67,7 @@ var _shell: VBoxContainer
 var _keyboard: VBoxContainer
 var _keyboard_visible := false
 var _shell_button_down := false
+var _shell_hovered := false
 var _shell_last_position := Vector2(-32, -32)
 var _shift := false
 var _letter_buttons: Array[Button] = []
@@ -519,7 +520,9 @@ func _point_shell(ray_origin: Vector3, ray_direction: Vector3, pressed: bool, ne
 	motion.global_position = pixel
 	motion.relative = pixel - _shell_last_position
 	motion.button_mask = MOUSE_BUTTON_MASK_LEFT if _shell_button_down else 0
-	_shell_viewport.notify_mouse_entered()
+	if not _shell_hovered:
+		_shell_viewport.notify_mouse_entered()
+		_shell_hovered = true
 	_shell_viewport.push_input(motion, true)
 	_shell_last_position = pixel
 	if (_shell_button_down and not pressed) or (new_press and not _must_release):
@@ -544,7 +547,9 @@ func _release_shell_pointer() -> void:
 		button.button_index = MOUSE_BUTTON_LEFT
 		button.pressed = false
 		_shell_viewport.push_input(button, true)
+	if is_instance_valid(_shell_viewport) and _shell_hovered:
 		_shell_viewport.notify_mouse_exited()
+	_shell_hovered = false
 	_shell_button_down = false
 
 func _send_motion(pixel: Vector2, force := false) -> void:

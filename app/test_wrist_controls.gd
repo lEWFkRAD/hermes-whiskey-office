@@ -128,7 +128,7 @@ func _initialize() -> void:
 func run_checks() -> void:
 	for page_name: String in Controls.PAGES:
 		var rows: Array = Controls.PAGES[page_name]
-		check(rows.size() == 8, "Page has exactly eight choices: " + page_name)
+		check(rows.size() >= 2 and rows.size() <= 8, "Page has two to eight purposeful choices: " + page_name)
 		var seen: Dictionary = {}
 		for row: Array in rows:
 			var id := str(row[0])

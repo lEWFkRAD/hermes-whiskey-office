@@ -4,7 +4,7 @@ The first tracked hand/controller session shows one short teaching card at a tim
 
 Hands first learn the two-finger wrist-menu gesture. Opening the wheel replaces that introductory card with twist-and-pinch guidance. Pointing at an open window can show two-hand movement/resizing guidance. Controllers receive button and stick shortcuts. Tips have a cooldown and remember which lessons have already appeared.
 
-**Senses → Help** offers Hand menu, Twist & pinch, Windows, Controllers and Voice lessons. **Tips off** persists across launches. Individual lessons can still be requested with tips disabled; **Replay tips** re-enables contextual coaching and clears the seen set. The menu closes before an explicitly requested card appears. Desktop previews can replay lessons from the same wheel without enabling automatic coaching.
+**Quick menu → Help** offers Hand menu, Twist & pinch, Windows, Controllers and Voice lessons. **Tips off** persists across launches. Individual lessons can still be requested with tips disabled; **Replay tips** re-enables contextual coaching and clears the seen set. The menu closes before an explicitly requested card appears. Desktop previews can replay lessons from the same wheel without enabling automatic coaching.
 
 When no wheel is open, **B dismisses a visible tip first**. A later press resumes the normal window-back behavior. While the wheel is open, B closes the wheel. Hand users can let cards fade or choose Tips off through Help.
 

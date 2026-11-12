@@ -50,6 +50,20 @@ class Tree:
 
 
 class PlanningTests(unittest.TestCase):
+    def test_desktop_restores_native_hud_without_touching_draft(self):
+        tree = Tree()
+        tree.add('Send')
+        exit_hud = tree.add('Exit HUD mode')
+        plan = nav.plan_action('desktop', PID, tree.snapshot())
+        self.assertEqual((plan.node, plan.label), (exit_hud, 'desktop'))
+        self.assertEqual(nav.plan_action('desktop', PID, tree.snapshot(), ('desktop',)).kind, 'done')
+        tree = Tree()
+        tree.add('HUD mode')
+        self.assertEqual(nav.plan_action('desktop', PID, tree.snapshot()).kind, 'guidance')
+        tree.add('Confirmation', role='dialog', modal=True)
+        with self.assertRaises(nav.HermesNavigationError):
+            nav.plan_action('desktop', PID, tree.snapshot())
+
     def test_dictation_selects_draft_recording_without_starting_a_call(self):
         tree = Tree()
         tree.add('Start voice conversation')

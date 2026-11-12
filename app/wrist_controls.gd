@@ -6,94 +6,80 @@ const Dial = preload("res://wrist_dial.gd")
 const Menu = preload("res://wrist_menu.gd")
 const PAGES := {
 	"home": [
-		["page_build", "Build", "Start work\nand choose resources"],
+		["page_build", "Hermes", "Tasks, terminal and approvals"],
 		["voice", "Dictate", "Record a draft\nSend when ready"],
-		["voice_stop", "End voice", "Stop the open conversation\nkeep working quietly"],
+		["page_windows", "Windows", "Open and arrange your work"],
+		["page_podium", "Podium", "Objects and projections"],
+		["window_source_loading-bay", "File tray", "Shared files and working copies"],
 		["share", "Discuss view", "Attach this view\nthen send when ready"],
-		["nav_approvals", "Approvals", "Review the actual\nHermes request"],
-		["page_windows", "Windows", "Place your workspace"],
-		["window_source_loading-bay", "File tray", "Shared files and\nworking copies"],
-		["page_senses", "Senses", "Voice, context and room"]
+		["page_senses", "Voice & room", "Conversation and passthrough"],
+		["page_help", "Help", "Hand and controller tips"]
 	],
 	"build": [
 		["nav_new_session", "New task", "Start a Hermes session"],
-		["window_source_loading-bay", "Loading Bay", "Keep files and\nworking copies"],
-		["nav_skills", "Skills", "Browse Hermes skills"],
-		["tui", "Terminal", "The real Hermes TUI"],
+		["desktop", "Desktop", "Bring the Hermes app forward"],
+		["tui", "Terminal", "Open the real Hermes TUI"],
 		["nav_artifacts", "Artifacts", "Files and created work"],
-		["page_podium", "Podium", "Project models, files\nand live windows"],
-		["page_tools", "Tools", "Plugins, MCP and\nHermes capabilities"],
-		["page_home", "Back", "Main tool wheel"]
-	],
-	"tools": [
-		["nav_tools", "Tools", "Hermes capabilities"],
-		["nav_plugins", "Plugins", "Installed Hermes plugins"],
-		["nav_mcp", "MCP", "Connected tools in Hermes"],
-		["nav_skills", "Skills", "Browse Hermes skills"],
-		["nav_approvals", "Approvals", "Review the actual request"],
-		["page_room", "Room", "Move around the study"],
-		["nav_artifacts", "Documents", "Open Hermes artifacts"],
-		["page_build", "Back", "Build controls"]
-	],
-	"podium": [
-		["hologram_next", "Next asset", "Project the next model"],
-		["page_fabricate", "Make object", "Image → model → pick up"],
-		["hologram_window", "Live window", "Project the active app\nwith its existing controls"],
-		["hologram_rotate", "Rotate", "Start or stop model rotation"],
-		["page_projection", "Adjust", "Size and source controls"],
-		["hologram_readable", "Readable", "Toggle hologram / full color"],
-		["hologram_clear", "Clear", "Return the source window\nand empty the podium"],
-		["page_build", "Back", "Build controls"]
-	],
-	"fabricate": [
-		["fabricate_image", "Next image", "Preview Loading Bay\nInbox images"],
-		["fabricate_render", "Render image", "Build the previewed image\nwith Object Studio"],
-		["fabricate_quality", "Quality", "Switch Fast / Detailed"],
-		["fabricate_ready", "Ready objects", "Put a finished model\non the podium"],
-		["fabricate_return", "Return object", "Recall the last moved\nobject to the podium"],
-		["window_source_loading-bay", "Loading Bay", "Add your source images"],
-		["hologram_view", "At podium", "Move to the podium"],
-		["page_podium", "Back", "Podium controls"]
-	],
-	"projection": [
-		["hologram_larger", "Larger", "Enlarge projection"],
-		["hologram_smaller", "Smaller", "Reduce projection"],
-		["hologram_reset", "Reset size", "Restore presentation size"],
-		["hologram_view", "At podium", "Move to the podium viewpoint"],
-		["hologram_source", "Work in app", "Return the original window"],
-		["hologram_file", "Open file", "Desktop file picker\nin desktop mode"],
-		["hologram_clear", "Clear", "Empty the podium"],
-		["page_podium", "Back", "Podium controls"]
+		["nav_approvals", "Approvals", "Review the actual Hermes request"],
+		["nav_tools", "Capabilities", "Tools, plugins and MCP\nin the Hermes app"],
+		["hud", "HUD", "Toggle the compact Hermes view"],
+		["page_home", "Back", "Quick menu"]
 	],
 	"windows": [
-		["page_sources", "Open window", "Choose a machine\nor connection"],
-		["window_next", "Next", "Focus the next window"],
-		["window_previous", "Previous", "Focus the previous window"],
-		["window_arrange", "Arrange", "Arrange open windows"],
-		["window_hide", "Hide", "Hide this window\nkeep its connection"],
-		["window_reopen", "Reopen", "Restore the last\nhidden window"],
-		["page_windowtools", "Window tools", "Keyboard, position\nand connection"],
-		["page_home", "Back", "Main tool wheel"]
+		["page_sources", "Open window", "Choose a machine or connection"],
+		["page_overview", "Overview", "Choose an open window"],
+		["window_arrange", "Arrange", "Arrange all open windows"],
+		["window_recenter", "Bring here", "Move the active window closer"],
+		["window_hide", "Hide", "Keep this connection open"],
+		["window_reopen", "Restore", "Restore the last hidden window"],
+		["page_windowtools", "Adjust", "Keyboard, size and connection"],
+		["page_home", "Back", "Quick menu"]
 	],
 	"windowtools": [
-		["window_recenter", "Bring here", "Bring the active window closer"],
 		["window_keyboard", "Keyboard", "Type in the active window"],
 		["window_larger", "Larger", "Enlarge the active window"],
 		["window_smaller", "Smaller", "Shrink the active window"],
-		["window_disconnect", "Disconnect", "Close this local client\nremote work is not terminated"],
-		["window_hide", "Hide", "Keep the connection open"],
-		["page_sources", "Open window", "Choose another connection"],
+		["window_disconnect", "Disconnect", "Close this client\nRemote work keeps running"],
 		["page_windows", "Back", "Window controls"]
 	],
+	"podium": [
+		["hologram_next", "Next asset", "Project the next existing model"],
+		["hologram_window", "Project window", "Use the active app on the podium"],
+		["page_fabricate", "Objects", "Images and finished objects"],
+		["page_projection", "Adjust", "Rotation and size"],
+		["hologram_readable", "Appearance", "Toggle hologram / full color"],
+		["hologram_source", "Work in app", "Restore the projected window"],
+		["hologram_clear", "Clear", "Empty the podium"],
+		["page_home", "Back", "Quick menu"]
+	],
+	"projection": [
+		["hologram_rotate", "Rotate", "Start or stop rotation"],
+		["hologram_larger", "Larger", "Enlarge projection"],
+		["hologram_smaller", "Smaller", "Reduce projection"],
+		["hologram_reset", "Reset size", "Restore presentation size"],
+		["page_podium", "Back", "Podium controls"]
+	],
+	"fabricate": [
+		["fabricate_image", "Preview image", "Next image in File tray Inbox"],
+		["fabricate_render", "Render image", "Build the previewed image"],
+		["fabricate_quality", "Quality", "Switch Fast / Detailed"],
+		["fabricate_ready", "Ready objects", "Put a finished model on the podium"],
+		["fabricate_return", "Return object", "Recall the last moved object"],
+		["page_podium", "Back", "Podium controls"]
+	],
 	"senses": [
-		["share", "Share view", "Attach one office image\nwithout sending it"],
 		["voice_call", "Conversation", "Continuous voice replies\nuntil End voice"],
-		["hud", "HUD", "Compact shared workspace"],
-		["passthrough", "Passthrough", "Show your room\nwhen supported"],
-		["camera_unavailable", "Scan page", "Quest camera component\nnot installed", false],
-		["voice_stop", "End voice", "End the current voice conversation"],
-		["page_help", "Help", "Hand and controller tips\nReplay or turn off"],
-		["page_home", "Back", "Main tool wheel"]
+		["voice_stop", "End voice", "Stop the open conversation"],
+		["passthrough", "Passthrough", "Show your room when supported"],
+		["page_room", "Viewpoints", "Move to a place in the office"],
+		["page_home", "Back", "Quick menu"]
+	],
+	"room": [
+		["view_desk", "Desk", "Your shared workspace"],
+		["view_fire", "Fireplace", "Take a seat by the fire"],
+		["view_bar", "Collection", "The whiskey cabinet"],
+		["view_arrival", "Entrance", "Return to the entrance"],
+		["page_senses", "Back", "Voice and room"]
 	],
 	"help": [
 		["tutorial_hands", "Hand menu", "Learn the two-finger gesture"],
@@ -103,17 +89,7 @@ const PAGES := {
 		["tutorial_voice", "Voice", "Drafts and conversations"],
 		["tutorial_off", "Tips off", "Keep the room quiet"],
 		["tutorial_on", "Replay tips", "Show contextual tips again"],
-		["page_senses", "Back", "Senses controls"]
-	],
-	"room": [
-		["view_desk", "Desk", "Your shared workspace"],
-		["view_fire", "Fireplace", "Take a seat by the fire"],
-		["view_bar", "Collection", "The whiskey cabinet"],
-		["view_arrival", "Room", "Return to the entrance"],
-		["recenter", "Recenter", "Bring Hermes closer"],
-		["hide_panel", "Hide panel", "Keep the room clear"],
-		["passthrough", "Passthrough", "Show your physical room"],
-		["page_home", "Back", "Main tool wheel"]
+		["page_home", "Back", "Quick menu"]
 	],
 	"parts": [
 		["parts_next", "Next", "Inspect next assembly"],
@@ -130,7 +106,9 @@ const PAGES := {
 var dial = Dial.new()
 var menu: Node3D
 var page := "home"
+var menu_entries: Array = []
 var mode := ""
+var generation_available := true
 var _head: Node3D
 var _basis := Basis.IDENTITY
 var _wrist := Vector3.ZERO
@@ -157,6 +135,7 @@ func set_sources(rows: Array) -> void:
 
 func setup(head: Node3D) -> void:
 	_head = head
+	generation_available = not OS.get_environment("HERMES_PODIUM_IPC_DIR").is_empty()
 	menu = Menu.new()
 	add_child(menu)
 	menu.setup(head)
@@ -179,9 +158,16 @@ func _set_page(next: String) -> void:
 			else: rows.append(["window_empty_" + str(index), "—", "No source configured", false])
 		rows.append(["window_more", "More", "More windows", choices.size() > 6])
 		rows.append(["page_windows", "Back", "Window controls"])
+	rows = rows.duplicate(true)
 	for row in rows:
+		if not generation_available and row[0] in ["fabricate_render", "fabricate_quality"]:
+			row[1] = "Rendering paused" if row[0] == "fabricate_render" else "Quality paused"
+			row[2] = "Image generation is paused\nExisting objects still work"
+			row.resize(4)
+			row[3] = false
 		ids.append(row[0])
 		entries.append({"id": row[0], "label": row[1], "description": row[2], "enabled": row.size() < 4 or row[3]})
+	menu_entries = entries
 	dial.set_slots(ids)
 	menu.set_page("Hermes" if page == "home" else page.capitalize(), entries)
 
@@ -235,13 +221,13 @@ func input(event: InputEvent) -> bool:
 			if event.physical_keycode in [KEY_ENTER, KEY_KP_ENTER, KEY_SPACE]:
 				_desktop_pinching = event.pressed
 			elif event.pressed and event.physical_keycode in [KEY_LEFT, KEY_RIGHT]:
-				_desktop_roll += 18.0 if event.physical_keycode == KEY_RIGHT else -18.0
+				_desktop_roll += 360.0 / dial._slots.size() / Dial.ROLL_GAIN if event.physical_keycode == KEY_RIGHT else -360.0 / dial._slots.size() / Dial.ROLL_GAIN
 		return true
 	if not dial.is_open(): return false
 	if event is InputEventMouseButton:
 		if event.pressed and mode == "desktop":
-			if event.button_index == MOUSE_BUTTON_WHEEL_UP: _desktop_roll -= 18.0
-			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN: _desktop_roll += 18.0
+			if event.button_index == MOUSE_BUTTON_WHEEL_UP: _desktop_roll -= 360.0 / dial._slots.size() / Dial.ROLL_GAIN
+			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN: _desktop_roll += 360.0 / dial._slots.size() / Dial.ROLL_GAIN
 		return true
 	return event is InputEventMouseMotion
 
@@ -322,6 +308,12 @@ func _handle(state: Dictionary) -> void:
 	var selected := str(state.get("activated_id", ""))
 	if not selected.is_empty():
 		_consumed_frame = true
+		var enabled := true
+		for entry: Dictionary in menu_entries:
+			if entry.id == selected: enabled = bool(entry.enabled)
+		if not enabled:
+			menu.present(dial.open_at(_basis))
+			return
 		if selected == "window_more" or selected.begins_with("window_empty_"):
 			if selected == "window_more":
 				if page == "overview": _overview_page = (_overview_page + 1) % maxi(1, ceili(_overview.size()/6.0))
